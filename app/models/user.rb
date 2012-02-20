@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
 	:styles => { :small => "180x", :thumb => "50x50!" }, 
 	:default_url => 'images/nopic.gif',
   :storage => :s3,
-  :bucket => 'S3_BUCKET',
+  :bucket => ENV['S3_BUCKET'],
   :s3_credentials => {
-    :access_key_id => 'S3_KEY',
-    :secret_access_key => 'S3_SECRET'
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']
   }
 			attr_accessible :email, :password, :password_confirmation, :first_name, 
 :last_name, :birthday, :county, :state, :zip_code, :about_us, :username, 
