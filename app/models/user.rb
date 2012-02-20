@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
     :secret_access_key => 'S3_SECRET'
   }
 			attr_accessible :email, :password, :password_confirmation, :first_name, 
-:last_name, :birthday, :county, :state, :zip_code, :about_us, :username
+:last_name, :birthday, :county, :state, :zip_code, :about_us, :username, 
+:avatar
   
 	
   attr_accessor :password
