@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>Social Playground</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<body>
+<div class="header">
+	<%= render 'topmenu' %>
+  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1></div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+	<div id="avatar">
+		<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
+			<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
+		<% else %>
+			<%= current_user.username.capitalize %></h1>
+		<% end %>
+		<%= image_tag current_user.avatar.url(:small) %>
+	</div>
+	<br>
+<%= render 'menu' %>
+ </div>
+
+<div class="navigationbtm"></div>
+ <br />
+ <img src="/assets/images/family.png" alt="sample 2" />
+ </div>
+    <div class="right_column">
+		<h3 align="center">Profile settings</h3>
+		<div class='flash'>
+			<%= flash_helper %>
+		</div>
+		<p><%= link_to 'Edit profile later', root_url %> </p>
+		 		<%= form_for current_user, :html => { :multipart => true } do |f| %>
+					<p>
+						<%= f.label :first_name %><br>
+						<%= f.text_field :first_name %>
+					</p>
+					<p>
+						<%= f.label :last_name %><br>
+						<%= f.text_field :last_name %>
+					</p>
+					<!--<p>
+						Profile photo <font color='FF0000'>(Currently down)</font><br />
+						<%= f.file_field :avatar %>
+					</p> -->
+					<p>
+						<%= f.label :state %><br>
+						<%= f.select :state, us_states %>
+					</p>
+						<% if current_user.state != nil %>
+							<p>
+								<%= f.label :county %><br>
+								<%= f.select :county, state_county %>
+							</p>
+						<% end %>
+					<p>
+						<%= f.label :zip_code %><br>
+						<%= f.text_field :zip_code %>
+					</p>
+					<p>	
+						<%= f.label :about_us %><br>
+			 			<%= f.text_area :about_us %>
+					</p>
+
+					<div class="actions">
+						<%= f.submit %>
+					</div>
+				<% end %>
+  </div>
+<br clear="all" /></div>
+<div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
+<ul>
+<li><a href="/index.html">Link 1</a></li>
+<li><a href="/index.html">Link 2
+</a></li>
+<li><a href="/index.html">Link 3
+</a></li>
+</ul>
+</div>
+
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <br clear="all" />
+<%= render 'footer' %>
+</body>
+</html>

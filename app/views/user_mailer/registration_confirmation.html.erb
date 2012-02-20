@@ -1,0 +1,13 @@
+<html>
+<p>Hello <%= @user.username.capitalize %>,</p>
+<p>Welcome and thank you for registering. Enjoy meeting new people and making friends with new families. There are only a few steps to take to make it easier to find families with kids the same age as yours.</p>
+<br>
+<p>A couple more steps to take and then you will be editing your profile, to tell people about you and your family, and then getting out and meeting people.</p>
+<br>
+<p><font color='FF1100'>Never meet new friends in the home. Always be safe about meeting new people, meet in puplic places.</font></p>
+<hr>
+<ul>
+<li><%= link_to "Edit Profile", get_info_url(:host => "localhost:3000") %></li>
+<li><%= link_to "Meet People", users_url(:host => "localhost:3000") %></li>
+</ul>
+</htm>

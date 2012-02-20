@@ -1,0 +1,24 @@
+<h3>People who want to be your friend</h3>
+<ul id="user_list">
+	<% for user in current_user.inverse_friends %>
+		<% unless current_user.friends.include?(user) %>
+		<li><% if user.avatar.file? %>
+					<%= image_tag user.avatar.url(:thumb) %>
+				<% else %>
+					<img src="assets/images/nopic2.gif">
+				<% end %>
+		<div class="user_message_container">
+		<%=h link_to user.username.capitalize, user.username %>
+					<div class="button">
+						<%= link_to "Accept", friendships_path(:friend_id => user), :method => :post %>
+					</div>
+				<%=h user.about_us %>
+			<div class="time_ago">
+				<%= time_ago_in_words user.created_at %> ago
+			</div>
+		</div>
+<div class="clear"></div>
+		<% end %>
+	<% end %>
+			</li>
+</ul>

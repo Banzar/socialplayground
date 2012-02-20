@@ -1,0 +1,112 @@
+<html>
+<body>
+<head><title>Social Playground
+</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<div class="header">
+	<%= render 'topmenu' %>
+  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1>
+	</div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+	<div id="avatar">
+		<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
+			<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
+		<% else %>
+			<%= current_user.username.capitalize %></h1>
+		<% end %>
+		<%= image_tag current_user.avatar.url(:small) %>
+	</div>
+	<br>
+<%= render 'menu' %>
+</div>
+
+<div class="navigationbtm"></div>
+ <br />
+ <img src="assets/images/family.png" alt="sample 2" />
+ </div>
+    <div class="right_column">
+			<div id="event_form">
+				<div class='flash'>
+					<%= flash_helper %>
+				</div>
+				<%= form_for Event.new do |f| %>
+					<p>
+						<%= f.label :event_name %><br>
+						<%= f.text_field :event_name %>
+					</p>
+					<p>
+						<%= f.label :event_description %><br>
+						<%= f.text_area :event_description %>
+					</p>
+					<p>
+						<%= f.label :date %><br>
+						<%= f.date_select :date %>
+					</p>
+					<p>
+						<%= f.label :start_time %><br>
+						<%= f.text_field :start_time %>
+					</p>
+					<p>
+						<%= f.submit %>
+					</p>
+				<% end %>
+			</div><div classs='clear'></div>
+
+			<div class='event_list_right'>
+				<% for event in current_user.events %>
+					<li <% if current_user.events.first == event %> class='first'<% end %>>
+						<div class='button'>
+							<%= link_to "delete", event, :method => :delete %><br>
+						</div>
+						<%=h link_to event.event_name, "/event/#{event.id}" %>
+						(<%= event.date %>)<br>
+					</li>
+				<% end %>
+			</div><div classs='clear'></div>
+		</div>
+<br clear="all" /></div>
+<div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
+<ul>
+<li><a href="/index.html">Link 1</a></li>
+<li><a href="/index.html">Link 2
+</a></li>
+<li><a href="/index.html">Link 3
+</a></li>
+</ul>
+</div>
+
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <br clear="all" />
+<%= render 'footer' %>
+</body>
+</html>
+

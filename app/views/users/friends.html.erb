@@ -1,0 +1,75 @@
+<html>
+<head><title>
+Social Playground
+</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<body>
+<div class="header">
+	<%= render 'topmenu' %>
+  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1></div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+	<div id="avatar">
+		 <img src="assets/images/family.png" alt="sample 2" />
+	</div>
+<div class='flash'>
+	<%= flash_helper %>
+</div>
+<br>
+<%= render 'menu' %>
+</div>
+
+<div class="navigationbtm"></div>
+ <br />
+ </div>
+    <div class="right_column">
+<%= render 'friends' %>
+<br />
+<%= render 'irequest' %>
+<br />
+<%= render 'requestme' %>
+</div>
+<br clear="all" /></div>
+<div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
+<ul>
+<li><a href="/index.html">Link 1</a></li>
+<li><a href="/index.html">Link 2
+</a></li>
+<li><a href="/index.html">Link 3
+</a></li>
+</ul>
+</div>
+
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <br clear="all" />
+<%= render 'footer' %>
+</body>
+</html>

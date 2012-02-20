@@ -1,0 +1,162 @@
+<html>
+<head><title>Social Playground</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<body>
+<div class="header">
+	<% if current_user %>
+		<%= render 'topmenu' %>
+	<% end %>
+  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1></div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+		<div id="avatar">
+			 <img src="assets/images/family.png" alt="sample 2" />
+		</div>
+	<br>
+<%= render 'menu' %> 
+	</div>
+<div class="navigationbtm"></div>
+ <br />
+</div>
+	<div class="right_column">
+		<ul id="user_list">
+			<div class='flash'>
+				<%= flash_helper %>
+			</div>
+			<% if current_user %>
+				<% @users.each do |user| %>
+					<% if user.county == current_user.county && user.state == current_user.state %>
+						<li <% if @users.first == user %> class="first"<% end %>>
+						<% if user.avatar.file? %>
+							<%= image_tag user.avatar.url(:thumb) %>
+						<% else %>
+							<img src="/assets/images/nopic2.gif">
+						<% end %>
+						<div class="user_message_container">
+							<%= link_to user.username.capitalize, user.username %>
+								<div class="button">
+								<% unless current_user.friends.include?(user) or current_user == user %>
+									<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+								<% end %>
+								</div>
+							<% if user.county.present? && user.state.present? %>
+								<b><%= h user.county %>, <%= user.state %> - </b>
+							<% end %>
+							<%= h user.about_us %>
+					</div>
+					<div class="clear"></div>
+					</li>
+				<% elsif user.state == current_user.state && user.county != current_user.county %>
+					<li <% if @users.first == user %> class="first"<% end %>>
+					<% if user.avatar.file? %>
+						<%= image_tag user.avatar.url(:thumb) %>
+					<% else %>
+						<img src="/assets/images/nopic2.gif">
+					<% end %>
+					<div class="user_message_container">
+						<%= link_to user.username.capitalize, user.username %>
+							<div class="button">
+								<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+							</div>
+						<% if user.state.present? && user.county.present? %>
+							<b><%= h user.county %>, <%= user.state %> -</b>
+							<%= h user.about_us %>
+						<% else %>
+							<b><%= h user.state %></b>
+						<% end %>
+				</div>
+				<div class="clear"></div>
+				</li>
+			<% else %>
+				<li <% if @users.first == user %> class="first"<% end %>>
+				<% if user.avatar.file? %>
+					<%= image_tag user.avatar.url(:thumb) %>
+				<% else %>
+					<img src="/assets/images/nopic2.gif">
+				<% end %>
+				<div class="user_message_container">
+					<%= link_to user.username.capitalize, user.username %>
+						<div class="button">
+				<% unless current_user.friends.include?(user) or current_user == user %>
+									<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+							<% end %>
+								</div>
+							<% if user.county.present? && user.state.present? %>
+								(<%= user.county %>, <%= user.state %>)
+							<% elsif user.state.present? %>
+								(<%= user.state %>)
+							<% end %><br>
+							<%= h user.about_us %>
+					</div>
+					<div class="clear"></div>
+					</li>
+				<% end %>
+			<% end %>
+		<% end %>
+			<% unless current_user %>
+				<p>These are the users of Social playground. Have a look, but to view any of the profiles you will have to be logged in.</p>
+				<% @users.each do |user| %>
+					<li <% if @users.first == user %>class="first"<% end %>>
+								<% if user.avatar.file? %>
+									<%= image_tag user.avatar.url(:thumb) %>
+								<% else %>
+									<img src="/assets/images/nopic2.gif">
+								<% end %>
+								<div class="user_message_container">
+									<%= link_to user.username.capitalize, user.username %>
+									<% if user.state.present? && user.county.present? %>
+										<b><%= h user.county %>, <%= user.state %> -</b>
+										<%= h user.about_us %>
+									<% else %>
+										<b><%= h user.state %></b>
+									<% end %>
+							</div>
+							<div class="clear"></div>
+				<% end %>
+					</li>
+			<% end %>
+</div>
+<br clear="all" /></div>
+<div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
+<ul>
+<li><a href="/index.html">Link 1</a></li>
+<li><a href="/index.html">Link 2
+</a></li>
+<li><a href="/index.html">Link 3
+</a></li>
+</ul>
+</div>
+
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <div class="footer-div">
+      <h4>Link Area</h4>
+      <ul>
+        <li><a href="/index.html">Link 1</a> </li>
+        <li><a href="/index.html">Link 2 </a> </li>
+        <li><a href="/index.html">Link 3 </a> </li>
+      </ul>
+    </div>
+    <br clear="all" />
+<%= render 'footer' %>
+</body>
+</html>
