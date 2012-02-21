@@ -27,9 +27,11 @@
 				<%= @user.username.capitalize %>
 		</h1>
 		<% end %>
-			<%= image_tag @user.avatar.url(:small) %> 
-		<% unless current_user.friends.include?(@user) or @user == current_user %>
-			<%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+		<%= image_tag @user.avatar.url(:small) %> 
+		<% if current_user %>
+			<% unless current_user.friends.include?(@user) or @user == current_user %>
+				<%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+			<% end %>
 		<% end %>
 		
 		<% if @user.state.present? && @user.county.present? %>
@@ -67,8 +69,10 @@
 								<% end %>
 								<div class="location_container">
 									<div class="button">
-										<% unless current_user.friends.include?(user) %>
-											<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+										<% if current_user %>
+											<% unless current_user.friends.include?(user) %>
+												<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+											<% end %>
 										<% end %>
 									</div>
 									<%= link_to user.username.capitalize, user.username %>

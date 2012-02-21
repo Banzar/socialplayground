@@ -81,6 +81,9 @@
 			<%= flash_helper %>
 		</div>
 		<br />
+		<% if @feeds.count == 0 %>
+			<%= User.first.about_us %>
+		<% end %>
 		<%= render :partial => 'feeds_list', :locals => { :feeds => @feeds } %>
 			<% if @feeds.count >= 8 %>
 				<p><%= link_to "Read all feeds", feeds_url %></p>

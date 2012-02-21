@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_attached_file :avatar, 
 	:styles => { :small => "180x", :thumb => "50x50!" }, 
 	:default_url => 'images/nopic.gif',
@@ -9,7 +8,8 @@ class User < ActiveRecord::Base
     :access_key_id => ENV['S3_KEY'],
     :secret_access_key => ENV['S3_SECRET']
   }
-			attr_accessible :email, :password, :password_confirmation, :first_name, 
+
+	attr_accessible :email, :password, :password_confirmation, :first_name, 
 :last_name, :birthday, :county, :state, :zip_code, :about_us, :username, 
 :avatar
   
