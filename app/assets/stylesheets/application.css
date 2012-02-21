@@ -82,6 +82,18 @@ margin-top:-5px;
 	padding-left: 10px;
 }
 
+.right_column div.listings ul{
+	list-style-type:none;
+	width:500px;
+}
+.right_column div.listings li {
+	list-style: none;
+	float:left;
+	margin: 10px 0 0 0;
+	padding: 0 10px 0 0;
+	width:170px;
+}
+
 .right_column div.friend_list{
 	width:545px;
 	height:100%;

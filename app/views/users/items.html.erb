@@ -33,6 +33,10 @@
 					<%= f.text_field :item %>
 					</p>
 					<p>
+						<%= f.label :state %><br>
+						<%= f.select :state, us_states %>
+					</p>
+					<p>
 					<%= f.label :description %><br>
 					<%= f.text_area :description %>
 					</p>
@@ -48,10 +52,11 @@
 					<p>
 						Based on the term 'One persons trash is another persons treasure.' We are setting up a personal place to find items that are no longer needed by others, that you may need.<br /> 
 					<br />
-						For the term 'Pay it forward.' If you have something that your family can no longer use, like old close that may help someone else, please post it. This is set up to be a free service. From one family to another. We want to make it simple for getting rid of that which you do not need, and to find something you may.
+						For the term 'Pay it forward.' If you have something that your family can no longer use, like old clothes that may help someone else, please post it. This is set up to be a free service. From one family to another. We want to make it simple for getting rid of that which you do not need, and to find something you may.
 					</p>
 				<% else %>
 					<h5>Current Listings</h5>
+					<p><font color='red'>Remember, when your item is no longer available, please delete it.</font></p>
 					<% @items.each do |item| %>
 						<li>
 							<div class='button'>

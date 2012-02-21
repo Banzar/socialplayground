@@ -121,6 +121,6 @@ class UsersController < ApplicationController
 	end
 
 	def all_listings
-		@items = Item.all
+		@items = Item.all(:order => ["state"])
 	end
 end
