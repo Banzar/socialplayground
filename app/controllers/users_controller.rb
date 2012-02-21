@@ -31,9 +31,13 @@ class UsersController < ApplicationController
   end
 
 	def show
-		@user = User.find_by_username(params[:username])
-		@friend = @user.friends.each
-		@friends = @friend.include?(@user)
+		if current_user
+			@user = User.find_by_username(params[:username])
+			@friend = @user.friends.each
+			@friends = @friend.include?(@user)
+		else
+			redirect_to sign_up_url
+		end
 	end
 
   def update
