@@ -59,7 +59,7 @@
 						<h3><%=h @item.item %></h3> 
 						<div id='event'>
 							<%=h @item.description %><br>
-							<%= image_tag item.photo.url(:large) %>
+							<%= image_tag @item.photo.url(:large) %>
 						</div>
 			<% end %>
 		</div>
