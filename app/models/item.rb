@@ -2,8 +2,6 @@ class Item < ActiveRecord::Base
 	belongs_to :user
 	validates_presence_of :item, :description, :state
 
-	attr_accessor :photo_file_name
-
 	has_attached_file :photo,
 	:styles => { :large => "220x" }, 
 	:default_url => 'images/shirt.png',
