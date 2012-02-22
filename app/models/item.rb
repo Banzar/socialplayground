@@ -2,10 +2,10 @@ class Item < ActiveRecord::Base
 	belongs_to :user
 	validates_presence_of :item, :description, :state
 
-	attr_accessor :item, :description, :state, :photo_file_name
+	attr_accessor :photo_file_name
 
 	has_attached_file :photo,
-	:styles => { :large => "400x" }, 
+	:styles => { :large => "240x" }, 
 	:default_url => 'images/shirt.png',
   :storage => :s3,
   :bucket => ENV['S3_BUCKET2'],
