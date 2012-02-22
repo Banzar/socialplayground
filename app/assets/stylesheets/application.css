@@ -572,9 +572,9 @@ color:#006699;}
 	padding: 20px 10px 10px 10px;
 	height: 300px;
 	width: 545px;
-	background-color: #ffffff;
 	overflow: auto;
 	text-align: center;
+	font-size: 12px;
 }
 
 .right_column div.event_list_right{
