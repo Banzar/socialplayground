@@ -574,6 +574,7 @@ color:#006699;}
 	width: 545px;
 	background-color: #ffffff;
 	overflow: auto;
+	text-align: center;
 }
 
 .right_column div.event_list_right{
