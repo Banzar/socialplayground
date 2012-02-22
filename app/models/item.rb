@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 	attr_accessor :photo_file_name
 
 	has_attached_file :photo,
-	:styles => { :large => "240x" }, 
+	:styles => { :large => "220x" }, 
 	:default_url => 'images/shirt.png',
   :storage => :s3,
   :bucket => ENV['S3_BUCKET2'],

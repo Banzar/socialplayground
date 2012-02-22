@@ -51,10 +51,17 @@
 							<%= f.text_area :description %>
 						</p>
 						<p>
+							<%= image_tag @item.photo.url(:large) %>
+						</p>
+						<p>
+							<%= f.label :photo %><br>
+							<%= f.file_field :photo %>
+						</p>
+						<p>
 							<%= f.submit %>
 						</p>
 					<% end %>
-			</div><div classs='clear'></div>
+			</div>
 			<% else %>
 						<h3><%=h @item.item %></h3> 
 						<div id='event'>
