@@ -31,17 +31,15 @@
 		<% if current_user %>		
 			<% @items.each do |item| %>
 				<li>
-					<% if item.user.state == current_user.state %>
+					<% if item.user.state == current_user.state  %>
 						<%= link_to item.item, "/item/#{item.id}" %>
-					<% else %>
-						<%= item.user.state %> <%= link_to item.item, "/item/#{item.id}" %>
 					<% end %>
 				</li>
 			<% end %>
 		<% else %>
 			<% @items.each do |item| %>
 				<li>
-						<%= item.user.state %> <%= link_to item.item, "/item/#{item.id}" %>
+						<%= item.state %> <%= link_to item.item, "/item/#{item.id}" %>
 				</li>
 			<% end %>
 		<% end %>
