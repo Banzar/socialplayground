@@ -66,11 +66,11 @@
 							<div class='button'>
 								<%= link_to "delete", item, :method => :delete %><br>
 							</div>
-							<%=h link_to "#{item.item}", "/item/#{item.id}" %>
+							<%=h link_to item.item, "/item/#{item.id}" %>
 						</li>
 					<% end %>
 				<% end %>
-			</div>
+			</div><div class='clear'></div>
 		</div>
 	</div>
 <br clear="all" /></div>
