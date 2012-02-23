@@ -1,0 +1,17 @@
+<% if current_user %>
+	<ul class="markermenu">
+		<li class="markermenu"><a href="/profile" >Home</a></li>
+		<li class="markermenu"><a href="/<%= current_user.username %>" >Show Profile</a></li>
+		<li class="markermenu"><a href="/users">Meet People</a></li>
+		<li class="markermenu"><a href ="/events">Events</a></li>
+		<li class="markermenu"><a href="/my_items">Post Listing</a></li>
+		<li class="markermenu"><a href="/listings">View Listings</a></li>
+	</ul>
+<% else %>
+	<ul class="markermenu">
+		<li class="markermenu"><a href="/sign_up" >Sign up</a></li>
+		<li class="markermenu"><a href="/log_in" >Log in</a></li>
+		<li class="markermenu"><a href="/users">View Users</a></li>
+		<li class="markermenu"><a href="/listings">View Listings</a></li>
+	</ul>
+<% end %>

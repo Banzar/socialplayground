@@ -15,7 +15,10 @@ Abby::Application.routes.draw do
 	get "/:username/friends", :controller => "users", :action => "usersfriends"
 	get "/event/:id", :controller => "users", :action => "usersevents"
 	get "/item/:id", :controller => "users", :action => "usersitems"
+	get "new_friends" => "friendships#new", :as => "new_friends"
+
   root :to => "users#home"
+
 
 	resources :items
   resources :users

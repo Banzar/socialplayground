@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221233501) do
+ActiveRecord::Schema.define(:version => 20120223013016) do
 
   create_table "events", :force => true do |t|
     t.string   "event_name"
@@ -31,12 +31,13 @@ ActiveRecord::Schema.define(:version => 20120221233501) do
   end
 
   create_table "friendships", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.integer "blocker_id"
+    t.boolean "pending",    :default => true
   end
+
+  add_index "friendships", ["user_id", "friend_id"], :name => "index_friendships_on_user_id_and_friend_id", :unique => true
 
   create_table "items", :force => true do |t|
     t.string   "item"
