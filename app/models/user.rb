@@ -16,8 +16,7 @@ class User < ActiveRecord::Base
 	
   attr_accessor :password
   before_save :encrypt_password
- 
-
+  
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :email, :username
@@ -30,6 +29,8 @@ class User < ActiveRecord::Base
 	has_many :items, :dependent => :destroy
 	has_many :friendships
 	has_many :friends, :through => :friendships
+	has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+	has_many :inverse_friends, :through => :inverse_friendships, :source => :user, :order => "created_at desc"
 
 	def add_friend(friend)
 		friendship = friendships.create(:friend_id => friend.id)

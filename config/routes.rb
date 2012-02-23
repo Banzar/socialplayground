@@ -10,7 +10,7 @@ Abby::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   get "feeds" => "users#feeds", :as => "feeds"
   get "profile" => "users#home", :as => "profile"
-	get "friends" => "friendships#index", :as => "friends"
+	get "friends" => "users#friends", :as => "friends"
 	get "/:username", :controller => "users", :action => "show"
 	get "/:username/friends", :controller => "users", :action => "usersfriends"
 	get "/event/:id", :controller => "users", :action => "usersevents"
@@ -24,8 +24,5 @@ Abby::Application.routes.draw do
 	resources :feeds
 	resources :friendships
 	resources :friendship
-	resources :friends, :controller => 'friendships', :except => [:show, :edit] do
-		get "requests", :on => :collection
-		get "invites", :on => :collection
-	end
+
 end
