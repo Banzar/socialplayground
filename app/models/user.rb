@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
     :secret_access_key => ENV['S3_SECRET']
   }
 
-	include Amistad::FriendModel
 	attr_accessible :email, :password, :password_confirmation, :first_name, 
 :last_name, :birthday, :county, :state, :zip_code, :about_us, :username, 
 :avatar
