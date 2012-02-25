@@ -29,7 +29,7 @@
 		<% end %>
 		<%= image_tag @user.avatar.url(:small) %> 
 		<% if current_user %>
-			<% unless @user == current_user %>
+			<% unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
 				<%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
 			<% end %>
 		<% end %>
@@ -38,7 +38,7 @@
 			<h4>
 				Location: <%= @user.county %>, <%= @user.state %>
 			</h4>
-		<% else %>
+		<% elsif @user.county.nil? && @user.state.present? %>
 			<h4>
 				Location: <%= @user.state %>
 			</h4>

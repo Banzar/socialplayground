@@ -57,8 +57,16 @@ overflow: hidden;
 clear:both;
 }
 
-.left_column div.request a{
-	font-color: #FF0000;
+.left_column div.request a {
+	height: 20px;
+	margin-right: 1px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	color: #FF0000;
+	border: none;
 }
 
 .navigation{
@@ -462,8 +470,9 @@ color:#006699;}
 
 #user_list li div.user_message_container div.button {
 	float: right;
+	text-align: right;
 	margin-left: 5px;
-	width: 65px;
+	width: 125px;
 }
 
 #user_list li div.user_message_container a {

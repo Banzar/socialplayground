@@ -26,13 +26,14 @@
 			<%= current_user.username.capitalize %></h1>
 		<% end %>
 		<%= image_tag current_user.avatar.url(:small) %>
+
 		<p><%= useless_info %></p>
-	</div>
+		<% unless current_user.pending_friends.empty? %>
 		<div class='request'>
-			<% unless current_user.pending_friends.empty? %>
-				<%= link_to pluralize(current_user.pending_friends.length, "friend request"), friends_url %>
-			<% end %>
+			<%= link_to pluralize(current_user.pending_friends.length, "Friend Request"), friends_url %>
 		</div>
+		<% end %>
+	</div>
 	<br>
 <%= render 'menu' %><br />
 
