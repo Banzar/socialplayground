@@ -32,11 +32,6 @@ class User < ActiveRecord::Base
 	has_many :requested_friends, :through => :friendships, :source => :friend, :conditions => "status = 'requested'", :order => :created_at
 	has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "status = 'pending'", :order => :created_at
 
-# Inverse friends, leaving untill done with friendship corrections
-	has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
-	has_many :inverse_friends, :through => :inverse_friendships, :source => :user, :order => "created_at desc"
-## Delete inverse friends after completing friendship requests
-
 
 	def add_friend(friend)
 		friendship = friendships.create(:friend_id => friend.id)
