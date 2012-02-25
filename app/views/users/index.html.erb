@@ -62,6 +62,7 @@
 						<div class="button">
 							<% unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
 								<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+							<% end %>
 						</div>
 						<%= link_to user.username.capitalize, user.username %>
 						<% if user.state.present? && user.county.present? %>
