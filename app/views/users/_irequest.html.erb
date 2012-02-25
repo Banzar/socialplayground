@@ -1,21 +1,21 @@
+<% unless @user.requested_friends.empty? %>
 <h3>Friends requested</h3>
 <ul id="user_list">
-<% for friendship in current_user.friendships %>
-		<% if !friendship.friend.friends.include?(current_user) %>
-				<li><% if friendship.friend.avatar.file? %>
-					<%= image_tag friendship.friend.avatar.url(:thumb) %>
-				<% else %>
-					<img src="assets/images/nopic2.gif">
-				<% end %>
-		<div class="user_message_container">
-			<%=h link_to friendship.friend.username.capitalize, friendship.friend.username %>
-			<div class="button">
-				<%= link_to "Cancel", friendship, :method => :delete %>
-			</div>
-			<%= friendship.friend.about_us %>
-	</div>
-<% end %>
-	<div class="clear"></div>
-<% end %>
-	</li>
+	<% @user.requested_friends.each do |user| %>
+		<li>
+			<% if user.avatar.file? %>
+				<%= image_tag user.avatar.url(:thumb) %>
+			<% else %>
+				<img src="assets/images/nopic2.gif">
+			<% end %>
+			<div class="user_message_container">
+				<%=h link_to user.username.capitalize, user.username %>
+				<div class="button">
+					<%= link_to '[Cancel]', friendship_path(:user_id => current_user, :id => user), :method => :delete, :confirm => 'Are you sure?' %>
+				</div>
+				<%= user.about_us %>
+				</div><div class="clear"></div>
+		</li>
+	<% end %>
 </ul>
+<% end %>
