@@ -451,8 +451,9 @@ color:#006699;}
 #user_list li div.user_message_container {
 	float: left;
 	margin-left: 10px;
-	width: 455px;
+	width: 470px;
 	height: 50px;
+	overflow: hidden;
 }
 
 #user_list li div.user_message_container div.button {
