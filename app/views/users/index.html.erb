@@ -28,7 +28,7 @@
 			<div class='flash'>
 				<%= flash_helper %>
 			</div>
-			<% if current_user || current_user.friends.include?(user) %>
+			<% if current_user %>
 				<% @users.each do |user| %>
 					<% if user.county == current_user.county && user.state == current_user.state %>
 						<li <% if @users.first == user %> class="first"<% end %>>
@@ -40,7 +40,7 @@
 						<div class="user_message_container">
 							<%= link_to user.username.capitalize, user.username %>
 						<div class="button">
-							<% unless user == current_user %>
+							<% unless user == current_user || current_user.requested_friends.include?(user) || current_user.friends.include?(user) || current_user.pending_friends.include?(user) %>
 								<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
 							<% end %>
 						</div>
@@ -60,7 +60,7 @@
 				<% end %>
 					<div class="user_message_container">
 						<div class="button">
-							<% unless user == current_user || current_user.friends.include?(user) %>
+							<% unless user == current_user || current_user.requested_friends.include?(user) || current_user.friends.include?(user) || current_user.pending_friends.include?(user) %>
 								<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
 							<% end %>
 						</div>
@@ -84,7 +84,7 @@
 				<div class="user_message_container">
 					<%= link_to user.username.capitalize, user.username %>
 						<div class="button">
-							<% unless user == current_user || current_user.friends.include?(user) %>
+							<% unless user == current_user || current_user.requested_friends.include?(user) || current_user.friends.include?(user) || current_user.pending_friends.include?(user) %>
 								<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
 							<% end %>
 						</div>
