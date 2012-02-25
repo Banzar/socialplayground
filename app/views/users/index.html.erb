@@ -54,10 +54,10 @@
 					<% else %>
 						<img src="/assets/images/nopic2.gif">
 					<% end %>
+					<div class="user_message_container">
 					<div class="button">
 						<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
 					</div>
-					<div class="user_message_container">
 						<%= link_to user.username.capitalize, user.username %>
 						<% if user.state.present? && user.county.present? %>
 							<b><%= h user.county %>, <%= user.state %> -</b>
