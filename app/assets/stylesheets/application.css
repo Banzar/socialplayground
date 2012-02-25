@@ -57,6 +57,10 @@ overflow: hidden;
 clear:both;
 }
 
+.left_column div.request a{
+	font-color: #FF0000;
+}
+
 .navigation{
 width:184px;
 padding-left:6px;
@@ -459,7 +463,7 @@ color:#006699;}
 #user_list li div.user_message_container div.button {
 	float: right;
 	margin-left: 5px;
-	width: 50px;
+	width: 65px;
 }
 
 #user_list li div.user_message_container a {
