@@ -5,7 +5,6 @@ gem 'thin'
 gem 'therubyracer'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'json'
-gem 'amistad'
 
 gem 'paperclip', '~> 2.4'
 gem 'aws-s3'

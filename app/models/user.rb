@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
 	end
 
 	def some_feeds
-		Feed.find(:all, :conditions => ["user_id in (?)", friends.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
+		Feed.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
 	end
 
 	def all_feeds

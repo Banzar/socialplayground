@@ -40,17 +40,19 @@
 <% unless @events.count == 0 %>
 <b>Social Events:</b>
 	<% @events.each do |event| %>
-		<div class="user_events">
-			<li>
-				<div class='button'>
-					<%= event.date %>
-				</div>
-				<div class='event_name'>
-					<%= link_to event.user.username.capitalize, "/#{event.user.username}" %> :<br />
-					<%= link_to event.event_name, "/event/#{event.id}" %>
-				</div><div class='clear'></div>
-			</li>
-		</div>
+		<% if current_user.friends.include?(event.user) %>
+			<div class="user_events">
+				<li>
+					<div class='button'>
+						<%= event.date %>
+					</div>
+					<div class='event_name'>
+						<%= link_to event.user.username.capitalize, "/#{event.user.username}" %> :<br />
+						<%= link_to event.event_name, "/event/#{event.id}" %>
+					</div><div class='clear'></div>
+				</li>
+			</div>
+		<% end %>
 	<% end %>
 <% end %>
 </div>

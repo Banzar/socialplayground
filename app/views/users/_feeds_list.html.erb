@@ -1,6 +1,6 @@
 <ul id="feed_list">
 		<% feeds.each do |feed| %>
-			<% if feed.user.friends.include?(current_user) or feed.user == current_user %>
+			<% if current_user.friends.include?(feed.user) or feed.user == current_user %>
 				<li <% if feeds.first == feed %>class="first"<% end %>>
 				<% if feed.user.avatar.file? %>
 					<%= image_tag feed.user.avatar.url(:thumb) %>

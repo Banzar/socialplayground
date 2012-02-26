@@ -21,9 +21,9 @@ class UsersController < ApplicationController
   def home
     if current_user
       @user = current_user
-			@feeds = current_user.some_feeds
+			@feeds = Feed.all(:order => 'created_at desc', :limit => 8)
 			@last_feed = current_user.feeds.last
-			@events = current_user.some_events
+			@events = Event.all
 
     else
       redirect_to sign_up_url
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 	def feeds
     if current_user
       @user = current_user
-			@feeds = current_user.all_feeds
+			@feeds = Feed.all
 			@last_feed = current_user.feeds.last
     else
       redirect_to sign_up_url
