@@ -6,6 +6,9 @@ class FeedsController < ApplicationController
 		feed.created_at = Time.now
 		feed.save!
 		redirect_to root_url
+		if current_user.feeds.count > 25
+			current_user.feeds.first.destroy
+		end
 	end
 
 	def destroy
