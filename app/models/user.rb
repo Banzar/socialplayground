@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   
 	before_create :build_inbox
 
+
 	def inbox
 		folders.find_by_name("Inbox")
 	end
