@@ -1,15 +1,16 @@
 <html>
-<head>
-<title>Social Playground</title>
+<body>
+<head><title>Social Playground
+</title>
 <link rel="icon" 
       type="image/ico" 
       href="/assets/images/logo.ico">
 </head>
-<body>
 <div class="header">
-	<%= render 'topmenu' %>
-  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Social Playground</h1></div>
+	<%= render 'users/topmenu' %>
+  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1>
+	</div>
 </div>
 <div class="content_body">
   <div class="content_interior"><div class="left_column"><div class="navigation">
@@ -22,57 +23,38 @@
 		<%= image_tag current_user.avatar.url(:small) %>
 	</div>
 	<br>
-<%= render 'menu' %>
- </div>
+<%= render 'users/menu' %>
+</div>
 
 <div class="navigationbtm"></div>
  <br />
- <img src="/assets/images/family.png" alt="sample 2" />
+ <img src="assets/images/family.png" alt="sample 2" />
  </div>
     <div class="right_column">
 			<%= render 'users/mail_menu' %>
-		<h3 align="center">Profile settings</h3>
-		<div class='flash'>
-			<%= flash_helper %>
-		</div>
-		<p><%= link_to 'Edit profile later', root_url %> </p>
-		 		<%= form_for current_user, :html => { :multipart => true } do |f| %>
-					<p>
-						<%= f.label :first_name %><br>
-						<%= f.text_field :first_name %>
-					</p>
-					<p>
-						<%= f.label :last_name %><br>
-						<%= f.text_field :last_name %>
-					</p>
-					<p>
-						Profile photo <br />
-						<%= f.file_field :avatar %>
-					</p>
-					<p>
-						<%= f.label :state %><br>
-						<%= f.select :state, us_states %>
-					</p>
-						<% if current_user.state != nil %>
-							<p>
-								<%= f.label :county %><br>
-								<%= f.select :county, state_county %>
-							</p>
-						<% end %>
-					<p>
-						<%= f.label :zip_code %><br>
-						<%= f.text_field :zip_code %>
-					</p>
-					<p>	
-						<%= f.label :about_us %><br>
-			 			<%= f.text_area :about_us %>
-					</p>
+			<div class='flash'>
+				<%= flash_helper %>
+			</div>
+			<h7>Sent Messages</h7>
 
-					<div class="actions">
-						<%= f.submit %>
-					</div>
-				<% end %>
-  </div>
+					<table border="1" width=550>
+						<tr>
+						  <th>To</th>
+						  <th>Subject</th>
+						  <th>Sent</th>
+						</tr>
+
+						<% for message in @messages %>
+						  <tr>
+						    <td><%=h link_to message.recipients.map(&:username).to_sentence, "/#{message.recipients.map(&:username).to_sentence}" %></td>
+						    <td><%= link_to h(message.subject), sent_path(message) %></td>
+						    <td><%= distance_of_time_in_words(message.created_at, Time.now) %> ago</td>
+						  </tr>
+						<% end %>
+					</table>
+
+					<%= will_paginate @messages %>
+		</div>
 <br clear="all" /></div>
 <div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
 <ul>
@@ -109,6 +91,7 @@
       </ul>
     </div>
     <br clear="all" />
-<%= render 'footer' %>
+<%= render 'users/footer' %>
 </body>
 </html>
+

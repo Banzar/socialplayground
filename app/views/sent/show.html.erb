@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="header">
-	<%= render 'topmenu' %>
+	<%= render 'users/topmenu' %>
   <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
   <h1 class="title">Social Playground</h1></div>
 </div>
@@ -22,7 +22,7 @@
 		<%= image_tag current_user.avatar.url(:small) %>
 	</div>
 	<br>
-<%= render 'menu' %>
+<%= render 'users/menu' %>
  </div>
 
 <div class="navigationbtm"></div>
@@ -35,43 +35,11 @@
 		<div class='flash'>
 			<%= flash_helper %>
 		</div>
-		<p><%= link_to 'Edit profile later', root_url %> </p>
-		 		<%= form_for current_user, :html => { :multipart => true } do |f| %>
-					<p>
-						<%= f.label :first_name %><br>
-						<%= f.text_field :first_name %>
-					</p>
-					<p>
-						<%= f.label :last_name %><br>
-						<%= f.text_field :last_name %>
-					</p>
-					<p>
-						Profile photo <br />
-						<%= f.file_field :avatar %>
-					</p>
-					<p>
-						<%= f.label :state %><br>
-						<%= f.select :state, us_states %>
-					</p>
-						<% if current_user.state != nil %>
-							<p>
-								<%= f.label :county %><br>
-								<%= f.select :county, state_county %>
-							</p>
-						<% end %>
-					<p>
-						<%= f.label :zip_code %><br>
-						<%= f.text_field :zip_code %>
-					</p>
-					<p>	
-						<%= f.label :about_us %><br>
-			 			<%= f.text_area :about_us %>
-					</p>
+		<h2>Sent: <%=h(@message.subject) %></h2>
+		<p><strong>To:</strong> <%= @message.recipients.map(&:username).to_sentence %></p>
+		<p><strong>Sent:</strong> <%= @message.created_at.to_s(:username) %></p>
 
-					<div class="actions">
-						<%= f.submit %>
-					</div>
-				<% end %>
+		<pre><%=h @message.body %></pre>
   </div>
 <br clear="all" /></div>
 <div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
@@ -109,6 +77,6 @@
       </ul>
     </div>
     <br clear="all" />
-<%= render 'footer' %>
+<%= render 'users/footer' %>
 </body>
 </html>

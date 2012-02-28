@@ -12,9 +12,9 @@ class FriendshipsController < ApplicationController
 		@friendship1 = Friendship.create(params[:friendship1])
 		@friendship2 = Friendship.create(params[:friendship2])
 		if @friendship1.save && @friendship2.save
-			redirect_to users_path
+			redirect_to friends_path
 		else
-			redirect_to users_path
+			redirect_to friends_path
 		end
 	end
 
@@ -25,8 +25,8 @@ class FriendshipsController < ApplicationController
 		params[:friendship2] = {:user_id => @friend.id, :friend_id => @user.id, :status => 'accepted'}
 		@friendship1 = Friendship.find_by_user_id_and_friend_id(@user.id, @friend.id)
 		@friendship2 = Friendship.find_by_user_id_and_friend_id(@friend.id, @user.id)
-		if @friendship1.update_attributes(params[:friendship1]) && @friendship2.update_attributes(params[:frienship2])
-			flash[:notice] = 'Friend successfully accepted'
+		if @friendship1.update_attributes(params[:friendship1]) && @friendship2.update_attributes(params[:friendship2])
+		flash[:notice] = 'Friend sucessfully accepted!'
 			redirect_to friends_path
 		else
 			redirect_to friends_path
@@ -38,6 +38,6 @@ class FriendshipsController < ApplicationController
 		@friend = User.find(params[:id])
 		@friendship1 = @user.friendships.find_by_friend_id(params[:id]).destroy
 		@friendship2 = @friend.friendships.find_by_user_id(params[:id]).destroy
-		redirect_to friends_path
+		redirect_to friends_path(:user_id => current_user)
 	end
 end

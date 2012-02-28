@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Rails Messenger</title>
+  </head>
+  
+  <body>
+    <h1>Rails Messenger</h1>
+    
+    <% if flash[:notice] %>
+      <p style="color:green"><%= flash[:notice] %></p>
+    <% end %>
+    
+    <% if flash[:error] %>
+      <p style="color:red"><%= flash[:error] %></p>
+    <% end %>
+    
+    <% if logged_in? %>
+      <p>Welcome, <%=h current_user.login %>. <%= link_to "Logout", session_path, :method => "delete" %></p>
+    <% else %>
+      <p>You are not logged in. <%= link_to "Register", new_user_path %> or <%= link_to "Login", new_session_path %></p>
+    <% end %>
+    
+    <%= render :partial => "layouts/mailbox_list" if logged_in? %>
+    
+    <%= yield %>
+  </body>
+</html>

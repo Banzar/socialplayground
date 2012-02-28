@@ -2,27 +2,35 @@ class User < ActiveRecord::Base
 	has_attached_file :avatar, 
 	:styles => { :small => "180x", :thumb => "50x50!" }, 
 	:default_url => 'images/nopic.gif',
-  :storage => :s3,
-  :bucket => ENV['S3_BUCKET'],
-  :s3_credentials => {
-    :access_key_id => ENV['S3_KEY'],
-    :secret_access_key => ENV['S3_SECRET']
+  	:storage => :s3,
+  	:bucket => ENV['S3_BUCKET'],
+  	:s3_credentials => {
+    	:access_key_id => ENV['S3_KEY'],
+    	:secret_access_key => ENV['S3_SECRET']
   }
 
 	attr_accessible :email, :password, :password_confirmation, :first_name, 
 :last_name, :birthday, :county, :state, :zip_code, :about_us, :username, 
 :avatar
   
-	
-  attr_accessor :password
-  before_save :encrypt_password
+	before_create :build_inbox
+
+	def inbox
+		folders.find_by_name("Inbox")
+	end
+
+	def build_inbox
+		folders.build(:name => "Inbox")
+	end	
+
+ 	attr_accessor :password
+	before_save :encrypt_password
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :email, :username
-  validates_uniqueness_of :email, :username
-	validates_format_of :email,
- :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
+	validates_uniqueness_of :email, :username
+	validates_format_of :email, :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
 
 	has_many :events, :dependent => :destroy
 	has_many :feeds, :dependent => :destroy
@@ -31,7 +39,9 @@ class User < ActiveRecord::Base
 	has_many :friends, :through => :friendships, :conditions => "status = 'accepted'"
 	has_many :requested_friends, :through => :friendships, :source => :friend, :conditions => "status = 'requested'", :order => "friendships.created_at"
 	has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "status = 'pending'", :order => "friendships.created_at"
-
+	has_many :sent_messages, :class_name => "Message", :foreign_key => "author_id"
+	has_many :received_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id"
+	has_many :folders
 
 	def add_friend(friend)
 		friendship = friendships.create(:friend_id => friend.id)
@@ -40,6 +50,7 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	## Currently the find all by friendships are not working.. correcting later!
 	def some_feeds
 		Feed.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
 	end
@@ -51,6 +62,7 @@ class User < ActiveRecord::Base
 	def some_events
 		Event.find(:all, :conditions => ["user_id in (?)", friends.map(&:id)], :order => "created_at desc", :limit => 10)
 	end
+	## Above is to still be fixed.
 
   def self.authenticate(login, password)
     user = find_by_email(login) || find_by_username(login)
@@ -73,13 +85,15 @@ class User < ActiveRecord::Base
 			redirect_to log_in_page
 		end
 	end
-
+	
+	## Not active yet, but working on this too, fix later.
 	def self.search(search)
 		if search
 			find(:all, :conditions => ['username LIKE ?', "%#{search}%"])
 		else
 			find(:all)
 		end
-	end								
+	end
+	# Above to be worked on		
 end
 

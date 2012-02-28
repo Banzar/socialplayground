@@ -1,4 +1,11 @@
 Abby::Application.routes.draw do
+	get "messages/show"
+
+	get "sent/show"
+	get "reply_message/:id", :controller => "messages", :action => "reply"
+	get "sent_mail" => "sent#index", :as => "sent_mail"
+	get "send" => "sent#new", :as => "send"
+	get "mymail", :controller => "mailbox", :action => "index"
 	get "listings" => "users#all_listings", :as => "listings"
   get "my_items" => "users#items", :as => "my_items"
 	get "events" => "users#events", :as => "events"
@@ -17,11 +24,15 @@ Abby::Application.routes.draw do
 	get "/item/:id", :controller => "users", :action => "usersitems"
 	get "/users/:id/friends", :controller => "users", :action => "user_friends", :as => "user_friends"
 
-  root :to => "users#home"
+  	root :to => "users#home"
 
+	resources :sent
+	resources :messages
+	resources :reply_message
+	resources :mailbox
 	resources :items
-  resources :users
-  resources :sessions
+ 	resources :users
+	resources :sessions
 	resources :events
 	resources :feeds
 	resources :friendships

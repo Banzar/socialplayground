@@ -321,6 +321,15 @@ h6 {
 	text-transform: uppercase;
 }
 
+h7 {
+	margin: 0 0 8px 0;
+	color: #999;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: left;
+}
+
 #menu {
 	float: right;
 	width: 500px;

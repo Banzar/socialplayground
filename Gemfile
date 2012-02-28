@@ -5,6 +5,7 @@ gem 'thin'
 gem 'therubyracer'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'json'
+gem 'will_paginate', '~> 3.0'
 
 gem 'paperclip', '~> 2.4'
 gem 'aws-s3'

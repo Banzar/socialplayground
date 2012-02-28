@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221233501) do
+ActiveRecord::Schema.define(:version => 20120227033734) do
 
   create_table "events", :force => true do |t|
     t.string   "event_name"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(:version => 20120221233501) do
     t.integer  "user_id"
     t.text     "message"
     t.datetime "create_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "folders", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,6 +57,22 @@ ActiveRecord::Schema.define(:version => 20120221233501) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "message_copies", :force => true do |t|
+    t.integer  "recipient_id"
+    t.integer  "message_id"
+    t.integer  "folder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "author_id"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
