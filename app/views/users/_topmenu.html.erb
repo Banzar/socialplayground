@@ -1,5 +1,6 @@
 <div id='menu'>
 	<ul>
+		<li><a href ="/send">Send</a></li>
 		<li><a href ="/mymail">Messages</a></li>
 		<li><a href ="/friends">Friends<% unless current_user.pending_friends.empty? %>(<%= current_user.pending_friends.count %>)<% end %></a></li>
 		<li><a href ="/account">Account</a></li>
