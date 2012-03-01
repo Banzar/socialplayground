@@ -44,13 +44,6 @@ class User < ActiveRecord::Base
 	has_many :received_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id"
 	has_many :folders
 
-	def add_friend(friend)
-		friendship = friendships.create(:friend_id => friend.id)
-		if !friendship.save
-			logger.debug "User '#{friend.email}' already exists in your friendships list."
-		end
-	end
-
 	## Currently the find all by friendships are not working.. correcting later!
 	def some_feeds
 		Feed.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)

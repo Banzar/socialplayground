@@ -35,47 +35,13 @@
 			<%= flash_helper %>
 		</div>
 		<h7><%=h(@message.subject) %></h7>
-		<p><strong>To:</strong> <%= @message.recipients.map(&:username).to_sentence %></p>
+		<p><strong>To:</strong> <%= link_to "#{@message.recipients.map(&:username).to_sentence}", "/#{@message.recipients.map(&:username).to_sentence}" %></p>
 		<p><strong>Sent:</strong> <%= @message.created_at.to_s(:username) %></p>
 
 		<pre><%=h @message.body %></pre>
   </div>
 <br clear="all" /></div>
-<div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
-<ul>
-<li><a href="/index.html">Link 1</a></li>
-<li><a href="/index.html">Link 2
-</a></li>
-<li><a href="/index.html">Link 3
-</a></li>
-</ul>
-</div>
 
-    <div class="footer-div">
-      <h4>Link Area</h4>
-      <ul>
-        <li><a href="/index.html">Link 1</a> </li>
-        <li><a href="/index.html">Link 2 </a> </li>
-        <li><a href="/index.html">Link 3 </a> </li>
-      </ul>
-    </div>
-    <div class="footer-div">
-      <h4>Link Area</h4>
-      <ul>
-        <li><a href="/index.html">Link 1</a> </li>
-        <li><a href="/index.html">Link 2 </a> </li>
-        <li><a href="/index.html">Link 3 </a> </li>
-      </ul>
-    </div>
-    <div class="footer-div">
-      <h4>Link Area</h4>
-      <ul>
-        <li><a href="/index.html">Link 1</a> </li>
-        <li><a href="/index.html">Link 2 </a> </li>
-        <li><a href="/index.html">Link 3 </a> </li>
-      </ul>
-    </div>
-    <br clear="all" />
 <%= render 'users/footer' %>
 </body>
 </html>
