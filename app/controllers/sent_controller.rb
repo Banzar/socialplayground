@@ -21,4 +21,11 @@ class SentController < ApplicationController
 			render :action => "new"
 		end
 	end
+
+	def destroy
+		@message = current_user.sent_messages.find(params[:id])
+		@message.destroy
+
+		redirect_to sent_mail_path
+	end
 end
