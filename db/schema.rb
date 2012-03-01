@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227033734) do
+ActiveRecord::Schema.define(:version => 20120229212200) do
 
   create_table "events", :force => true do |t|
     t.string   "event_name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120227033734) do
     t.integer  "folder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "deleted"
   end
 
   create_table "messages", :force => true do |t|

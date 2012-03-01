@@ -3,6 +3,12 @@ class MessagesController < ApplicationController
     @message = current_user.received_messages.find(params[:id])
   end
   
+  def destroy
+    @message = current_user.received_messages.find(params[:id])
+    @message.destroy
+    redirect_to mymail_path
+  end
+
   def reply
     @original = current_user.received_messages.find(params[:id])
     

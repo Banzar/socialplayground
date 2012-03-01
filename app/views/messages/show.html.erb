@@ -42,7 +42,11 @@
 			<p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
 
 			<pre><%=h @message.body %></pre>
-			<p><%= link_to "Reply", reply_message_path(@message) %></p>
+			<p>
+				<%= link_to "Reply", reply_message_path(@message) %>||
+				<%= link_to "Delete", message_path(@message), :method => "delete" %>
+			</p>
+
 		</div>
 <br clear="all" /></div>
 <div class="footer"><div class="footer-inner"><div class="footer-div"><h4>Link Area</h4>
