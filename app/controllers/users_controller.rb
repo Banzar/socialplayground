@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
+	def new
+  	@user = User.new
   end
 
   def create
@@ -24,7 +24,6 @@ class UsersController < ApplicationController
 			@feeds = Feed.all(:order => 'created_at desc', :limit => 8)
 			@last_feed = current_user.feeds.last
 			@events = Event.all
-
     else
       redirect_to sign_up_url
     end
