@@ -43,11 +43,11 @@ class User < ActiveRecord::Base
 	has_many :sent_messages, :class_name => "Message", :foreign_key => "author_id"
 	has_many :received_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id"
 	has_many :folders
-	has_many :viewed_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id", :conditions => "viewed = 'true'"
+	has_many :new_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id", :conditions => "viewed != 'true'"
 
 	## Currently the find all by friendships are not working.. correcting later!
 	def some_feeds
-		Feed.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
+		Feed.find(:all, :conditions => ["current_user.id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
 	end
 
 	def all_feeds
