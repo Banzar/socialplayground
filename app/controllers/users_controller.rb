@@ -1,7 +1,16 @@
 class UsersController < ApplicationController
-	def new
-  	@user = User.new
-  end
+
+	def account
+		if current_user
+			@user = current_user
+		else
+			redirect_to log_in_url
+		end
+	end
+
+	def all_listings
+		@items = Item.all(:order => ["state"])
+	end
 
   def create
     @user = User.new(params[:user])
@@ -14,10 +23,42 @@ class UsersController < ApplicationController
 	  end
   end
 
-	def index
-		@users = User.all(:order => ["state"])
+	def events
+		if current_user
+			@user = current_user
+		else
+			redirect_to sign_up_url
+		end
+	end
+
+	def feeds
+    if current_user
+      @user = current_user
+			@feeds = Feed.all
+			@last_feed = current_user.feeds.last
+    else
+      redirect_to sign_up_url
+    end
+  end
+
+	def friends
+		if current_user
+			@user = current_user
+			@friends = current_user.friends.all
+			@friendships = current_user.friendships
+		else
+			redirect_to sign_up_url
+		end
 	end
 	
+	def get_info
+		if current_user
+			@user = current_user
+		else
+			redirect_to log_in_url
+		end
+	end
+
   def home
     if current_user
       @user = current_user
@@ -27,6 +68,22 @@ class UsersController < ApplicationController
     else
       redirect_to sign_up_url
     end
+  end
+
+	def index
+		@users = User.all(:order => ["state"])
+	end
+
+	def items
+		if current_user
+			@items = current_user.items.all
+		else
+			redirect_to log_in_url
+		end
+	end
+
+	def new
+  	@user = User.new
   end
 
 	def show
@@ -53,50 +110,6 @@ class UsersController < ApplicationController
     end
   end
 
-	def friends
-		if current_user
-			@user = current_user
-			@friends = current_user.friends.all
-			@friendships = current_user.friendships
-		else
-			redirect_to sign_up_url
-		end
-	end
-
-	def feeds
-    if current_user
-      @user = current_user
-			@feeds = Feed.all
-			@last_feed = current_user.feeds.last
-    else
-      redirect_to sign_up_url
-    end
-  end
-
-	def get_info
-		if current_user
-			@user = current_user
-		else
-			redirect_to log_in_url
-		end
-	end
-
-	def account
-		if current_user
-			@user = current_user
-		else
-			redirect_to log_in_url
-		end
-	end
-
-	def events
-		if current_user
-			@user = current_user
-		else
-			redirect_to sign_up_url
-		end
-	end
-
 	def usersevents
 		if current_user
 			@user = current_user
@@ -106,20 +119,8 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def items
-		if current_user
-			@items = current_user.items.all
-		else
-			redirect_to log_in_url
-		end
-	end
-
 	def usersitems
 		@user = current_user
 		@item = Item.find(params[:id])
-	end
-
-	def all_listings
-		@items = Item.all(:order => ["state"])
 	end
 end
