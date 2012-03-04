@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 	def feeds
     if current_user
       @user = current_user
-			@feeds = Feed.all
+			@feeds = current_user.all_feeds
 			@last_feed = current_user.feeds.last
     else
       redirect_to sign_up_url
