@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 	def events
 		if current_user
 			@user = current_user
+			@events = current_user.events.all
 		else
 			redirect_to sign_up_url
 		end
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
       @user = current_user
 			@feeds = current_user.some_feeds
 			@last_feed = current_user.feeds.last
-			@events = current_user.some_events
+			@events = current_user.friend_events
     else
       redirect_to sign_up_url
     end

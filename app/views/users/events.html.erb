@@ -59,14 +59,22 @@
 			</div><div classs='clear'></div>
 
 			<div class='event_list_right'>
-				<% for event in current_user.events %>
-					<li <% if current_user.events.first == event %> class='first'<% end %>>
-						<div class='button'>
-							<%= link_to "delete", event, :method => :delete %><br>
-						</div>
-						<%=h link_to event.event_name, "/event/#{event.id}" %>
-						(<%= event.date %>)<br>
-					</li>
+				<% if @events.count == 0 %>
+					<h5>Post Your Events</h5>
+					<p>
+						Here you can post the events that you are throwing. If you are having a party for your childs birthday, this would be a good place to let all your friends know. If you wanted to have a night out with the family and friends, you could post it here so that your friends will know.<br /><br />
+						Please remember, after the event, you should delete it, so it is not still on your friends event list.
+					</p>
+				<% else %>
+					<% for event in current_user.events %>
+						<li <% if current_user.events.first == event %> class='first'<% end %>>
+							<div class='button'>
+								<%= link_to "delete", event, :method => :delete %><br>
+							</div>
+							<%=h link_to event.event_name, "/event/#{event.id}" %>
+							(<%= event.date %>)<br>
+						</li>
+					<% end %>
 				<% end %>
 			</div><div classs='clear'></div>
 		</div>

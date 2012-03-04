@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
 		Feed.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc")
 	end
 
-	def some_events
-		Event.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id)], :order => "created_at desc", :limit => 10)
+	def friend_events
+		Event.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id)], :order => "created_at desc")
 	end
 
   def self.authenticate(login, password)

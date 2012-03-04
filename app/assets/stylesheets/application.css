@@ -33,7 +33,6 @@ background-color:#F6F1DE;
 .content_interior{
 width:760px;
 margin-left:auto;
-margin-right:auto;
 }
 
 .header_interior{
@@ -331,7 +330,7 @@ h7 {
 
 #menu {
 	float: right;
-	width: 500px;
+	width: 550px;
 	height: 100px;
 	margin: 0px auto;
 	padding: 0px;
