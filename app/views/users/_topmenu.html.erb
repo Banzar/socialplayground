@@ -1,6 +1,6 @@
 <div id='menu'>
 	<ul>
-		<li><a href ="/mymail">Messages<% unless current_user.received_messages.count - current_user.viewed_messages.count == 0 %>[<%= current_user.received_messages.count - current_user.viewed_messages.count %>]<% end %></a></li>
+		<li><a href ="/mymail">Messages<% unless current_user.new_messages.count == 0 %>[<%= current_user.new_messages.count %>]<% end %></a></li>
 		<li><a href ="/friends">Friends<% unless current_user.pending_friends.empty? %>[<%= current_user.pending_friends.count %>]<% end %></a></li>
 		<li><a href ="/account">Account</a></li>
 		<li><a href ="/get_info">Edit</a></li>
