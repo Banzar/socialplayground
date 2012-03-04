@@ -1,31 +1,29 @@
 <ul id="feed_list">
 		<% feeds.each do |feed| %>
-			<% if current_user.friends.include?(feed.user) or feed.user == current_user %>
-				<li <% if feeds.first == feed %>class="first"<% end %>>
-				<% if feed.user.avatar.file? %>
-					<%= image_tag feed.user.avatar.url(:thumb) %>
+			<li <% if feeds.first == feed %>class="first"<% end %>>
+			<% if feed.user.avatar.file? %>
+				<%= image_tag feed.user.avatar.url(:thumb) %>
+			<% else %>
+				<img src="assets/images/nopic2.gif">
+			<% end %>
+			<div class="feed_message_container">
+				<% if feed.user.first_name.present? && feed.user.last_name.present? %>
+					<%= link_to "#{feed.user.first_name} #{feed.user.last_name}", feed.user.username %>
 				<% else %>
-					<img src="assets/images/nopic2.gif">
+					<%= link_to feed.user.username.capitalize, feed.user.username %>
 				<% end %>
-				<div class="feed_message_container">
-					<% if feed.user.first_name.present? && feed.user.last_name.present? %>
-						<%= link_to "#{feed.user.first_name} #{feed.user.last_name}", feed.user.username %>
-					<% else %>
-						<%= link_to feed.user.username.capitalize, feed.user.username %>
-					<% end %>
 
-						<%= h feed.message %>
-					<div class="time_ago">
-						<%= time_ago_in_words feed.created_at %> ago
-							<% if feed.user == current_user %>
-								<div class="button">
-									<%= link_to "delete", feed, :method => :delete %>
-								</div>
-							<% end %>
-					</div>
+					<%= h feed.message %>
+				<div class="time_ago">
+					<%= time_ago_in_words feed.created_at %> ago
+						<% if feed.user == current_user %>
+							<div class="button">
+								<%= link_to "delete", feed, :method => :delete %>
+							</div>
+						<% end %>
 				</div>
-			<div class="clear"></div>
-			</li>
-		<% end %>
+			</div>
+		<div class="clear"></div>
+		</li>
 	<% end %>
 </ul>

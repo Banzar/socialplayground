@@ -1,11 +1,7 @@
 <html>
 <body>
 <head><title>Hello 
-<% if current_user.first_name.present? %>
-<%= current_user.first_name.capitalize %>
-<% else %>
-<%= current_user.username.capitalize %>
-<% end %>
+<%= current_user.username %>
 </title>
 <link rel="icon" 
       type="image/ico" 
@@ -20,11 +16,7 @@
 <div class="content_body">
   <div class="content_interior"><div class="left_column"><div class="navigation">
 	<div id="avatar">
-		<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
-			<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
-		<% else %>
-			<%= current_user.username.capitalize %></h1>
-		<% end %>
+		<h1><%= current_user.username %></h1>
 		<%= image_tag current_user.avatar.url(:small) %>
 
 		<p><%= useless_info %></p>
@@ -40,19 +32,17 @@
 <% unless @events.count == 0 %>
 <b>Social Events:</b>
 	<% @events.each do |event| %>
-		<% if current_user.friends.include?(event.user) %>
-			<div class="user_events">
-				<li>
-					<div class='button'>
-						<%= event.date %>
-					</div>
-					<div class='event_name'>
-						<%= link_to event.user.username.capitalize, "/#{event.user.username}" %> :<br />
-						<%= link_to event.event_name, "/event/#{event.id}" %>
-					</div><div class='clear'></div>
-				</li>
-			</div>
-		<% end %>
+		<div class="user_events">
+			<li>
+				<div class='button'>
+					<%= event.date %>
+				</div>
+				<div class='event_name'>
+					<%= link_to event.user.username.capitalize, "/#{event.user.username}" %> :<br />
+					<%= link_to event.event_name, "/event/#{event.id}" %>
+				</div><div class='clear'></div>
+			</li>
+		</div>
 	<% end %>
 <% end %>
 </div>

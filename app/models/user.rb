@@ -45,19 +45,17 @@ class User < ActiveRecord::Base
 	has_many :folders
 	has_many :viewed_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id", :conditions => "viewed = 'true'"
 
-	## Currently the find all by friendships are not working.. correcting later!
 	def some_feeds
-		Feed.find(:all, :conditions => ["current_user.id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
+		Feed.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
 	end
 
 	def all_feeds
-		Feed.find(:all, :conditions => ["user_id in (?)", friends.map(&:id).push(self.id)], :order => "created_at desc")
+		Feed.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id).push(self.id)], :order => "created_at desc")
 	end
 
 	def some_events
-		Event.find(:all, :conditions => ["user_id in (?)", friends.map(&:id)], :order => "created_at desc", :limit => 10)
+		Event.find(:all, :conditions => ["user_id in (?)", friendships.map(&:id)], :order => "created_at desc", :limit => 10)
 	end
-	## Above is to still be fixed.
 
   def self.authenticate(login, password)
     user = find_by_email(login) || find_by_username(login)
