@@ -21,6 +21,19 @@ class KidsController < ApplicationController
 		redirect_to my_kids_url
   end
 
+	def update
+		kid = current_user.kids.find(params[:id])
+		
+	  respond_to do |format|
+    if kid.update_attributes(params[:kid])
+      format.html { redirect_to user_show_url, :notice => 'Child was successfully updated.' }
+      format.json { head :ok }
+    else
+      format.html { render_to my_kid_url, :notice => 'Child was not updated' }
+			end
+    end
+	end
+
 	def my_kid
 		@child = Kid.find(params[:id])
 	end
