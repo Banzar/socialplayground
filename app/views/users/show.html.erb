@@ -60,25 +60,27 @@
 			<% end %>
 			<% unless @user.kids.count == 0 %>
 				<div class='users_children'>
-					<% for kid in @children %>
-						<li>
-							<% if kid.photo.file? %>
-								<%= image_tag kid.photo(:small) %>
-							<% else %>
-								<img src="/assets/images/nopic.gif">
-							<% end %>
-							<div class='container'>
-								<p><font color='black'>
-									Name: <%= kid.first_name.capitalize %> <%= kid.last_name.capitalize %><br />
-									Age: <%= time_ago_in_words kid.birthday %> old.<br />
-									Birthday: <%= kid.birthday.strftime("%m-%d-%y") %><br />
-									School: <%= kid.school %><br />
-									Grade: <%= kid.grade %><br />
-									Hobbies: <%= kid.hobbies %>
-								</p></font>
-							</div><div class='clear'></div>
-						</li>
-					<% end %>
+					<ul>
+						<% for kid in @children %>
+							<li>
+								<%= kid.first_name.capitalize %> <%= kid.last_name.capitalize %><br />
+								<% if kid.photo.file? %>
+									<%= image_tag kid.photo(:small) %>
+								<% else %>
+									<img src="/assets/images/childprofile.jpg">
+								<% end %>
+								<div class='container'>
+									<font color='black'>
+										<b>Age:</b> <%= time_ago_in_words kid.birthday %> old.
+										<p><b>Birthday:</b> <%= kid.birthday.strftime("%m-%d-%y") %></p>
+										<p><b>School:</b> <%= kid.school %></p>
+										<p><b>Grade:</b> <%= kid.grade %></p>
+										<p><b>Hobbies:</b> <%= kid.hobbies %></p>
+									</font>
+								</div><div class='clear'></div>
+							</li>
+						<% end %>
+					</ul>
 				</div>
 				<% end %>
 				<% unless @user.friends.empty? %>

@@ -264,25 +264,38 @@ body {
 }
 
 .right_column div.users_children {
+	display: block;
 	width:530px;
 	margin-top:15px;
 	margin-bottom:15px;
 	border-left: solid 1px #E0D0B1;
 }
 
+.right_column div.users_children ul {
+	display: block;
+	float: right;
+	margin: 0;
+	padding: 10px 5px 0px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
 .right_column div.users_children li {
+	float: left;
 	list-style: none;
 	font-size: 14px;
 	margin: 0px;
 }
 
-.right_column div.users_children li div.container img {
+.right_column div.users_children li img {
 	float: left;
 }
 
 .right_column div.users_children li div.container {
-	float: right;
-	margin-right: 193px;
+	float: left;
+	width: 135px;
+	padding-left: 5px;
+	font-size: 80%;
 }
 
 .hr{
