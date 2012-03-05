@@ -81,49 +81,55 @@
 					<% end %>
 				</div>
 				<% end %>
-				<div class='friend_list_left'>
-					<% for user in @user.friends %>
-						<% if @user.friends.include?(user) %>
-							<li>
-								<% if user.avatar.file? %>
-									<%= image_tag user.avatar.url(:thumb) %>
-								<% else %>
-									<img src="/assets/images/nopic2.gif">
-								<% end %>
-								<div class="location_container">
-									<div class="button">
-										<% if current_user %>
-											<% unless current_user.friends.include?(user) %>
-												<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
-											<% end %>
-										<% end %>
-									</div>
-									<%= link_to user.username.capitalize, user.username %>
-									<% if user.county.present? && user.state.present? %>
-										(<%= user.county %>, <%= user.state %>)
-									<% elsif user.state.present? %>
-										(<%= user.state %>)
-									<% end %>
-			</div><div class="clear"></div>
-						</li>
-					<% end %>
-				<% end %>
-			</div>
+				<% unless @user.friends.empty? %>
+					<div class='friend_list_left'>
 
-			<div class="event_list_right">
-				<% if current_user.friends.include?(@user) && @user.friends.include?(current_user) || @user == current_user %>
-					<% for event in @user.events %>
-						<li>
-							<% if @user == current_user %>
-								<div class='button'>
-									<%= link_to "delete", event, :method => :delete %>
-								</div>
-							<% end %>
-							<%= link_to event.event_name, "/event/#{event.id}" %>
-						</li>
+						<h5><%= @user.username.capitalize %>'s friends</h5>
+						<% for user in @user.friends %>
+							<% if @user.friends.include?(user) %>
+								<li>
+									<% if user.avatar.file? %>
+										<%= image_tag user.avatar.url(:thumb) %>
+									<% else %>
+										<img src="/assets/images/nopic2.gif">
+									<% end %>
+									<div class="location_container">
+										<div class="button">
+											<% if current_user %>
+												<% unless current_user.friends.include?(user) %>
+													<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+												<% end %>
+											<% end %>
+										</div>
+										<%= link_to user.username.capitalize, user.username %>
+										<% if user.county.present? && user.state.present? %>
+											(<%= user.county %>, <%= user.state %>)
+										<% elsif user.state.present? %>
+											(<%= user.state %>)
+										<% end %>
+				</div><div class="clear"></div>
+							</li>
+						<% end %>
 					<% end %>
-				<% end %>
-			</div>
+				</div>
+			<% end %>
+			<% unless @user.events.empty? %>
+				<div class="event_list_right">
+					<% if current_user.friends.include?(@user) && @user.friends.include?(current_user) || @user == current_user %>
+						<h5>My latest events!</h5>
+						<% for event in @user.events %>
+							<li>
+								<% if @user == current_user %>
+									<div class='button'>
+										<%= link_to "delete", event, :method => :delete %>
+									</div>
+								<% end %>
+								<%= link_to event.event_name, "/event/#{event.id}" %><% if event.date.present? %><font color='000000'> (<%= event.date.strftime('%m-%d-%y') %>)</font><% end %>
+							</li>
+						<% end %>
+					<% end %>
+				</div>
+			<% end %>
   	</div>
 <br clear="all" /></div>
 

@@ -1,6 +1,6 @@
 class Kid < ActiveRecord::Base
 	has_attached_file :photo, 
-	:styles => { :small => "180x", :thumb => "50x50!" }, 
+	:styles => { :small => "100x140!", :thumb => "50x50!" }, 
 	:default_url => 'images/nopic.gif',
   	:storage => :s3,
   	:bucket => ENV['S3_BUCKET3'],

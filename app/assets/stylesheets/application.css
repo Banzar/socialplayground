@@ -161,7 +161,6 @@ body {
 	list-style: none;
 	padding: 10px 0px;
 	margin: 0px;
-	border-bottom: 1px solid;
 	float: bottom;
 }
 
@@ -673,10 +672,9 @@ li{
 .right_column div.event_list_right li {
 	size: 50%;
 	list-style: none;
-	padding: 10px 0px;
-	margin: 0px;
-	background-color: #FFFFFF;
-	border-bottom: 1px solid;
+	padding: 5px 0px;
+	margin: 10px 0px;
+	margin-left: 0px;
 }
 
 .right_column div.event_list_right li img {
