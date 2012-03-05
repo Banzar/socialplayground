@@ -26,7 +26,7 @@ class KidsController < ApplicationController
 		
 	  respond_to do |format|
     if kid.update_attributes(params[:kid])
-      format.html { redirect_to users_show_url, :notice => 'Child was successfully updated.' }
+      format.html { redirect_to root_url, :notice => 'Child was successfully updated.' }
       format.json { head :ok }
     else
       format.html { render_to my_kid_url, :notice => 'Child was not updated' }
