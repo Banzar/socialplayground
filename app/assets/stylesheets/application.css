@@ -92,6 +92,7 @@ body {
 	margin-top:25px;
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
+	border-right: solid 1px #E0D0B1;
 	padding-left: 10px;
 }
 
@@ -267,7 +268,6 @@ body {
 	width:530px;
 	margin-top:15px;
 	margin-bottom:15px;
-	border-left: solid 1px #E0D0B1;
 	padding: 0px 0px 50px 0px;
 }
 
@@ -674,7 +674,6 @@ li{
 	color: #000000;
 	float:right;
 	overflow: auto;
-	border-right: solid 1px #E0D0B1;
 }
 
 .right_column div.event_list_right div.button{
