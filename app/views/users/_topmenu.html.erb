@@ -1,6 +1,7 @@
 <div id='menu'>
 	<ul>
 		<li><a href ="/friends">|Friends<% unless current_user.pending_friends.empty? %>[<%= current_user.pending_friends.count %>]<% end %>|</a></li>
+		<li><a href ="/my_kids">|My Kids|</a></li>
 		<li><a href ="/events">|My Events|</a></li>
 		<li><a href="/my_items">|My Listings|</a></li>
 		<li><a href ="/get_info">|Account|</a></li>

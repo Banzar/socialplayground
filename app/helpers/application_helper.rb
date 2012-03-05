@@ -1,4 +1,48 @@
 module ApplicationHelper
+	def child_age
+		[
+			['Select age', ''],
+			['0', 'Less then 1 year'],
+			['1', '1 year old'],
+			['2', '2 years old'],
+			['3', '3 years old'],
+			['4', '4 years old'],
+			['5', '5 years old'],
+			['6', '6 years old'],
+			['7', '7 years old'],
+			['8', '8 years old'],
+			['9', '9 years old'],
+			['10', '10 years old'],
+			['11', '11 years old'],
+			['12', '12 years old'],
+			['13', '13 years old'],
+			['14', '14 years old'],
+			['15', '15 years old'],
+			['16', '16 years old'],
+			['17', '17 years old'],
+			['18+', 'Over 18 years old'],
+		]
+	end
+
+	def child_grade
+		[
+			['Select grade', ''],
+			['Kindergarten', 'Kindergarten'],
+			['1st', '1st grade'],
+			['2nd', '2nd grade'],
+			['3rd', '3rd grade'],
+			['4th', '4th grade'],
+			['5th', '5th grade'],
+			['6th', '6th grade'],
+			['7th', '7th grade'],
+			['8th', '8th grade'],
+			['9th', '9th grade'],
+			['10th', '10th grade'],
+			['11th', '11th grade'],
+			['12th', '12th grade'],
+		]
+	end
+
 	def us_states
 		  [
 		    ['Select State', ''],

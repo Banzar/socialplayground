@@ -92,6 +92,7 @@ class UsersController < ApplicationController
 			@user = User.find_by_username(params[:username])
 			@friend = @user.friends.each
 			@friends = @friend.include?(@user)
+			@children = @user.kids.all
 		else
 			redirect_to sign_up_url
 		end

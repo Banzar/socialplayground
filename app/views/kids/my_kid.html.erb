@@ -1,0 +1,78 @@
+<% if @child.user = current_user %>
+	<html>
+	<head><title>Social Playground</title>
+	<link rel="icon" 
+		    type="image/ico" 
+		    href="/assets/images/logo.ico">
+	</head>
+	<body>
+	<div class="header">
+		<%= render 'users/topmenu' %>
+		<div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+		<h1 class="title">Social Playground</h1></div>
+	</div>
+	<div class="content_body">
+		<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				 <img src="/assets/images/family.png" alt="sample 2" />
+			</div>
+		<br>
+	<%= render 'users/menu' %> 
+		</div>
+	<div class="navigationbtm"></div>
+	 <br />
+	</div>
+		<div class="right_column">
+			<div class="event_form">
+				<div class='flash'>
+					<%= flash_helper %>
+				</div>
+				<div class='default_left'>
+					<%= form_for @child, :html => { :multipart => true } do |f| %>
+						<p>
+							<%= f.label :photo %><br>
+							<%= f.file_field :photo %>
+						</p>
+						<p>
+							<%= f.radio_button :sex, "Male"	%>
+							<%= f.label :sex, "Male" %>
+							<%= f.radio_button :sex, "Female" %>
+							<%= f.label :sex, "Female" %>
+						</p>
+						<p>
+							<%= f.label :first_name %><br />
+							<%= f.text_field :first_name %>
+						</p>
+						<p>
+							<%= f.label :last_name %><br />
+							<%= f.text_field :last_name %>
+						</p>
+						<p>
+							<%= f.label :birthday %><br />
+							<%= f.date_select :birthday, :start_year => Time.now.year - 25, :end_year => Time.now.year, :order => [:month, :day, :year] %>
+						</p>
+						<p>
+							<%= f.label :grade %><br />
+							<%= f.select :grade, child_grade %>
+						</p>
+						<p>
+							<%= f.label :hobbies %><br />
+							<%= f.text_field :hobbies %>
+						</p>
+						<p>
+							<%= f.submit "Add" %>
+						</p>
+					<% end %>
+				</div>
+
+				</div><div class='clear'></div>
+			</div>
+		</div>
+	<br clear="all" /></div>
+
+	<%= render 'users/footer' %>
+	</body>
+	</html>
+<% else %>
+	<% redirect_to root_url %>
+<% end %>

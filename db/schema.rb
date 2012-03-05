@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301124405) do
+ActiveRecord::Schema.define(:version => 20120305003459) do
 
   create_table "events", :force => true do |t|
     t.string   "event_name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120301124405) do
     t.integer  "friend_id"
     t.string   "status"
     t.datetime "created_at"
+    t.datetime "accepted_at"
     t.datetime "updated_at"
   end
 
@@ -59,13 +60,30 @@ ActiveRecord::Schema.define(:version => 20120301124405) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "kids", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "sex"
+    t.string   "age"
+    t.string   "school"
+    t.string   "hobbies"
+    t.string   "grade"
+    t.integer  "user_id"
+    t.date     "birthday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
   create_table "message_copies", :force => true do |t|
     t.integer  "recipient_id"
     t.integer  "message_id"
     t.integer  "folder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted"
     t.boolean  "viewed"
   end
 

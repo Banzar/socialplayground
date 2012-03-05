@@ -58,6 +58,39 @@
 				<br />
 				<div class="hr"></div>
 			<% end %>
+			<% unless @user.kids.count == 0 %>
+				<div class='users_children'>
+					<% for kid in @children %>
+						<li>
+							<% if kid.photo.file? %>
+								<%= img_tag kid.photo(:small) %>
+							<% else %>
+								<img src="/assets/images/nopic.gif">
+							<% end %>
+							<div class='container'>
+								<p><font color='black'>
+									Name: <%= kid.first_name.capitalize %> <%= kid.last_name.capitalize %>
+								</p>
+								<p>
+									Age: <%= time_ago_in_words kid.birthday %> old.
+								</p>
+								<p>
+									Birthday: <%= kid.birthday %>
+								</p>
+								<p>
+									School: <%= kid.school %>
+								</p>
+								<p>
+									Grade: <%= kid.grade %>
+								</p>
+								<p>
+									Hobbies: <%= kid.hobbies %>
+								</p></font>
+							</div><div class='clear'></div>
+						</li>
+					<% end %>
+				</div>
+				<% end %>
 				<div class='friend_list_left'>
 					<% for user in @user.friends %>
 						<% if @user.friends.include?(user) %>

@@ -223,12 +223,67 @@ body {
 	border: 1px solid #D2DADA;
 }
 
-.right_column div.default_right li:hover {
+.right_column div.default_right div.children li {
+	list-style: none;
+	font-size: 14px;
+	margin: 0px;
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid #D2DADA;
+	height: 50px;
+}
+
+.right_column div.default_right div.children li {
+	list-style: none;
+	font-size: 14px;
+	margin: 0px;
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid #D2DADA;
+}
+
+.right_column div.default_right div.children li img {
+	float: left;
+}
+
+.right_column div.default_right div.children li div.name {
+	float: left;
+	margin-left: 6px;
+	width: 200px;
+}
+
+.right_column div.default_right div.children li div.container div.button {
+	float: right;
+}
+
+.right_column div.default_right div.children li:hover {
 	background-color: #F7F7F7;
 }
 
-.right_column div.default_right div.button {
+.right_column div.default_right div.children div.button {
 	float: right;
+}
+
+.right_column div.users_children {
+	width:530px;
+	margin-top:15px;
+	margin-bottom:15px;
+	border-left: solid 1px #E0D0B1;
+}
+
+.right_column div.users_children li {
+	list-style: none;
+	font-size: 14px;
+	margin: 0px;
+}
+
+.right_column div.users_children li div.container img {
+	float: left;
+}
+
+.right_column div.users_children li div.container {
+	float: right;
+	margin-right: 120px;
 }
 
 .hr{
@@ -653,7 +708,7 @@ li{
 	border-bottom: 1px dashed #D2DADA;
 }
 
-.user_events li:hover {
+.user_events.right_column div.default_right li { li:hover {
 	background-color: #F7F7F7;
 }
 
