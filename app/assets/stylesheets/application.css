@@ -264,11 +264,11 @@ body {
 }
 
 .right_column div.users_children {
-	display: block;
 	width:530px;
 	margin-top:15px;
 	margin-bottom:15px;
 	border-left: solid 1px #E0D0B1;
+	padding: 0px 0px 50px 0px;
 }
 
 .right_column div.users_children ul {
