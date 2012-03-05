@@ -61,7 +61,7 @@
 			<% elsif current_user.friends.include?(@event.user) %>
 						<h2>
 						<h3><%=h @event.event_name %></h3> 
-						<p align='center'><%=h @event.start_time %>, <%= @event.date %> 
+						<p align='center'><%=h @event.start_time %>, <%= @event.date.strftime('%m-%d-%y') %> 
 						</p>
 						<div id='event'>
 							<%=h @event.event_description %><br>

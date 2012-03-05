@@ -69,21 +69,11 @@
 							<% end %>
 							<div class='container'>
 								<p><font color='black'>
-									Name: <%= kid.first_name.capitalize %> <%= kid.last_name.capitalize %>
-								</p>
-								<p>
-									Age: <%= time_ago_in_words kid.birthday %> old.
-								</p>
-								<p>
-									Birthday: <%= kid.birthday %>
-								</p>
-								<p>
-									School: <%= kid.school %>
-								</p>
-								<p>
-									Grade: <%= kid.grade %>
-								</p>
-								<p>
+									Name: <%= kid.first_name.capitalize %> <%= kid.last_name.capitalize %><br />
+									Age: <%= time_ago_in_words kid.birthday %> old.<br />
+									Birthday: <%= kid.birthday.strftime("%m-%d-%y") %><br />
+									School: <%= kid.school %><br />
+									Grade: <%= kid.grade %><br />
 									Hobbies: <%= kid.hobbies %>
 								</p></font>
 							</div><div class='clear'></div>

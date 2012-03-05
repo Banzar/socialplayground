@@ -46,7 +46,7 @@
 					</p>
 					<p>
 						<%= f.label :date %><br>
-						<%= f.date_select :date %>
+						<%= f.date_select :date, :order => [:month, :day, :year] %>
 					</p>
 					<p>
 						<%= f.label :start_time %><br>
