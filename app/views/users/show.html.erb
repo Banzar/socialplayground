@@ -63,7 +63,7 @@
 					<% for kid in @children %>
 						<li>
 							<% if kid.photo.file? %>
-								<%= img_tag kid.photo(:small) %>
+								<%= image_tag kid.photo(:small) %>
 							<% else %>
 								<img src="/assets/images/nopic.gif">
 							<% end %>
