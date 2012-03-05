@@ -60,6 +60,7 @@
 			<% end %>
 			<% unless @user.kids.count == 0 %>
 				<div class='users_children'>
+					<h5><% if @user.kids.count == 1 %>Our Child<% elsif @user.kids.count >= 2 %>Our Children<% end %></h5>
 					<ul>
 						<% for kid in @children %>
 							<li>
