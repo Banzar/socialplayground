@@ -35,20 +35,6 @@
 			<%= flash_helper %>
 		</div>
 		 		<%= form_for current_user, :html => { :multipart => true } do |f| %>
-					<div class='default_right'>
-						<p>
-							<%= f.label :email %><br>
-							<%= f.text_field :email %>
-						</p>
-						<p>
-							<%= f.label :password %><br>
-							<%= f.password_field :password, :value => "#{current_user.password_salt}" %>
-						</p>
-						<p>
-							<%= f.label :password_confirmation %><br>
-							<%= f.password_field :password_confirmation, :value => "#{current_user.password_salt}" %>
-						</p>
-					</div>
 					<div class="default_left">
 						<p>
 							<%= f.label :first_name %><br>
@@ -86,6 +72,25 @@
 						</div>
 					</div>
 				<% end %>
+					<div class='default_right'>
+						<%= form_for current_user do |f| %>
+						<p>
+							<%= f.label :email %><br>
+							<%= f.text_field :email %>
+						</p>
+						<p>
+							<%= f.label :password %><br>
+							<%= f.password_field :password %>
+						</p>
+						<p>
+							<%= f.label :password_confirmation %><br>
+							<%= f.password_field :password_confirmation %>
+						</p>
+						<div class="actions">
+							<%= f.submit "Update security"%>
+						</div>
+					<% end %>
+					</div>
   </div>
 <br clear="all" /></div>
 

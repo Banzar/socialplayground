@@ -35,12 +35,12 @@
 			<div class='flash'>
 				<%= flash_helper %>
 			</div>
-			<h7>Compose</h7>
+			<h7>Compose Message</h7>
 
 			<%= form_for :message, :url => {:controller => "sent", :action => "create"} do |f| %>
 
 				<p>
-					To:
+					To: 
 					<select name="message[to][]">
 						<%= options_from_collection_for_select(@users, :id, :username, @message.to) %>
 					</select>

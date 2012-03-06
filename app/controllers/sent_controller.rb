@@ -12,7 +12,7 @@ class SentController < ApplicationController
     unless params[:to] == nil
       @users << User.find(params[:to])
     else
-      @users = User.find(:all)
+      @users = current_user.friends.all
     end
     @message = current_user.sent_messages.build(:to => params[:to])
   end
