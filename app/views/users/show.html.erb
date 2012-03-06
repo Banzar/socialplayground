@@ -43,6 +43,7 @@
 				Location: <%= @user.state %>
 			</h4>
 		<% end %>
+		<%= link_to "Send Message", "/sent/new?to=#{@user.id}" %>
 	</div>
 	<br>
 <%= render 'menu' %> </div>

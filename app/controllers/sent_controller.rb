@@ -7,9 +7,15 @@ class SentController < ApplicationController
 			@message = current_user.sent_messages.find(params[:id])
   	end
 
-  	def new
-			@message = current_user.sent_messages.build
-  	end
+  def new
+    @users = []
+    unless params[:to] == nil
+      @users << User.find(params[:to])
+    else
+      @users = User.find(:all)
+    end
+    @message = current_user.sent_messages.build(:to => params[:to])
+  end
 
 	def create
 		@message = current_user.sent_messages.build(params[:message])

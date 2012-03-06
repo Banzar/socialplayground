@@ -42,7 +42,7 @@
 				<p>
 					To:
 					<select name="message[to][]">
-						<%= options_from_collection_for_select(User.find(:all), :id, :username, @message.to) %>
+						<%= options_from_collection_for_select(@users, :id, :username, @message.to) %>
 					</select>
 				</p>
 
