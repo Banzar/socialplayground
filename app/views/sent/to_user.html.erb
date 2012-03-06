@@ -1,0 +1,58 @@
+<html>
+<body>
+<head><title>Social Playground
+</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<div class="header">
+	<%= render 'users/topmenu' %>
+  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1>
+	</div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+	<div id="avatar">
+		<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
+			<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
+		<% else %>
+			<%= current_user.username.capitalize %></h1>
+		<% end %>
+		<%= image_tag current_user.avatar.url(:small) %>
+	</div>
+	<br>
+<%= render 'users/menu' %>
+ </div>
+
+<div class="navigationbtm"></div>
+ <br />
+ <img src="/assets/images/family.png" alt="sample 2" />
+ </div>
+    <div class="right_column">
+			<%= render 'users/mail_menu' %>
+			<div class='flash'>
+				<%= flash_helper %>
+			</div>
+			<h7>Compose</h7>
+
+			<%= form_for :message, :url => {:controller => "sent", :action => "create"} do |f| %>
+
+				<p>
+					To:
+					<select name="message[to][]">
+						<%= options_from_collection_for_select(User.all, :id, :username, @message.to) %>
+					</select>
+				</p>
+
+				<p>Subject:<br /> <%= f.text_field :subject %></p>
+				<p>Body:<br /> <%= f.text_area :body %></p>
+				<p><%= submit_tag "Send" %></p>
+			<% end %>
+		</div>
+<br clear="all" /></div>
+
+<%= render 'users/footer' %>
+</body>
+</html>
