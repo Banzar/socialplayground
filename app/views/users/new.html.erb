@@ -45,6 +45,10 @@ Sign up!
 							</div>
 						<% end %>
 						<p>
+							<%= f.label :state %><br />
+							<%= f.select :state, us_states %>
+						</p>
+						<p>
 							<%= f.label :username %><br />
 							<%= f.text_field :username %>
 						</p>

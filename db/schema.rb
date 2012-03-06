@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305003459) do
+ActiveRecord::Schema.define(:version => 20120305221049) do
 
   create_table "events", :force => true do |t|
     t.string   "event_name"
@@ -114,6 +114,10 @@ ActiveRecord::Schema.define(:version => 20120305003459) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "mothers_first_name"
+    t.string   "mothers_last_name"
+    t.string   "fathers_first_name"
+    t.string   "fathers_last_name"
   end
 
 end

@@ -678,6 +678,7 @@ li{
 
 .right_column div.event_list_right div.button{
 	float:right;
+	margin-right: 30px;
 }
 
 .right_column div.event_list_right li {
