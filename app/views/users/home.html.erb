@@ -80,7 +80,7 @@
 		</div>
 		<br />
 		<% if @feeds.count == 0 %>
-			<%= User.first.about_us %>
+			<%= User.find(1).about_us %>
 		<% end %>
 		<%= render :partial => 'feeds_list', :locals => { :feeds => @feeds } %>
 			<% if @feeds.count >= 8 %>
