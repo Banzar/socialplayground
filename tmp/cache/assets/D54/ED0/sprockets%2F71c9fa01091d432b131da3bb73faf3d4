@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"digest"%9e05e446fbec3f90dd0334ccb8490b27"_version"%0321384a8a5a2488fdfd503ad9338c50"lengthiﬁ+"source"ﬁ+/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	"source"º+/* CSS Document */
 
 body {
 	margin: 0;
@@ -93,7 +93,6 @@ body {
 	margin-top:25px;
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
-	border-right: solid 1px #E0D0B1;
 	padding-left: 10px;
 }
 
@@ -731,4 +730,4 @@ li{
 	float: center;
 }
 
-:@created_atf1330987546.161773 Z}:@expires_in0:@compressedF
+"digest"%401cfe793aa5ee33b692d45eb6348197"_version"%e03596c8320ed121549db4f148945c69"lengthiº+:@created_atf1331169762.368191 êq:@expires_in0:@compressedF

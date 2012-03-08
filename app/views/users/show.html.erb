@@ -43,7 +43,6 @@
 				Location: <%= @user.state %>
 			</h4>
 		<% end %>
-
 		<%= link_to "Send Message", "/sent/new?to=#{@user.id}" %>
 	</div>
 	<br>
@@ -85,6 +84,7 @@
 						<% end %>
 					</ul>
 				</div><div class='clear'></div>
+				<br /><br />
 				<div class="hr"></div>
 				<% end %>
 				<% unless @user.friends.empty? %>

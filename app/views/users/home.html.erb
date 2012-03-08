@@ -1,7 +1,7 @@
 <html>
 <body>
-<head><title>Hello 
-<%= current_user.username %>
+<head><title><% if current_user.first_name.present? %><%= current_user.first_name.capitalize %> <%=current_user.last_name.capitalize %><% else %>
+<%= current_user.username.capitalize %><% end %>
 </title>
 <link rel="icon" 
       type="image/ico" 

@@ -12,7 +12,7 @@
 						<div class="user_message_container">
 							<%= link_to "#{user.username.capitalize}", "/#{user.username}" %>
 							<div class='button'>
-								<%= link_to '[Accept]', friendship_path(:user_id => current_user, :id => user), :method => :put, :confirm => 'Accept friend request! Are you sure?' %> |
+								<%= link_to '[Accept]', friendship_path(:user_id => current_user, :id => user), :method => :put %> |
 								<%= link_to '[Reject]', friendship_path(:user_id => current_user, :id => user), :method => :delete, :confirm => 'Reject friend request! Are you sure?' %>
 							</div>
 							<div class="time_ago">
