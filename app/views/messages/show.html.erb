@@ -35,18 +35,19 @@
 			<div class='flash'>
 				<%= flash_helper %>
 			</div>
-			<h7><%=h @message.subject %></h7>
+			<div class='message_container'>
+				<h7><%=h @message.subject %></h7>
 
-			<p><strong>From:</strong> <%=h @message.author.username %></p>
-			<p><strong>To:</strong> <%=h @message.recipients.map(&:username).to_sentence %></p>
-			<p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
+				<p><strong>From:</strong> <%=h @message.author.username %></p>
+				<p><strong>To:</strong> <%=h @message.recipients.map(&:username).to_sentence %></p>
+				<p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
 
-			<p><%=h @message.body %></p>
-			<p>
-				<%= link_to "Reply", reply_message_path(@message) %>||
-				<%= link_to "Delete", message_path(@message), :method => "delete" %>
-			</p>
-
+				<pre width="400"><%=h @message.body %></pre>
+				<p>
+					<%= link_to "Reply", reply_message_path(@message) %>||
+					<%= link_to "Delete", message_path(@message), :method => "delete" %>
+				</p>
+			</div>
 		</div>
 	<div class='right_side'>
 		<div class='navigation'>

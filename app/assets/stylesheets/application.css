@@ -100,6 +100,10 @@ body {
 	width: 540px;
 }
 
+.right_column div.message_container pre {
+	width: 500px;
+}
+
 .right_column div.listings ul{
 	list-style-type:none;
 	width:500px;
