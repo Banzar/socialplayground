@@ -29,19 +29,24 @@
  <br />
  <img src="/assets/images/family.png" alt="sample 2" />
  </div>
-    <div class="right_column">
-				<%= render 'users/mail_menu' %>
-				<div class='flash'>
-					<%= flash_helper %>
-				</div>
-			<div class='message_container'>
-				<h7><%=h(@message.subject) %></h7>
-				<p><strong>To:</strong> <%= link_to "#{@message.recipients.map(&:username).to_sentence}", "/#{@message.recipients.map(&:username).to_sentence}" %></p>
-				<p><strong>Sent:</strong> <%= @message.created_at.to_s(:username) %></p>
-
-				<pre><%=h @message.body %></pre>
+   <div class="right_column">
+			<%= render 'users/mail_menu' %>
+			<div class='flash'>
+				<%= flash_helper %>
 			</div>
+		<div class='message_container'>
+			<h7><%=h(@message.subject) %></h7>
+			<p><strong>To:</strong> <%= link_to "#{@message.recipients.map(&:username).to_sentence}", "/#{@message.recipients.map(&:username).to_sentence}" %></p>
+			<p><strong>Sent:</strong> <%= @message.created_at.to_s(:username) %></p>
+
+			<p><%=h @message.body %></p>
+		</div>
   </div>
+	<div class='right_side'>
+		<div class='navigation'>
+			<%= render 'users/menu_right' %>
+		</div>
+	</div>
 <br clear="all" /></div>
 
 <%= render 'users/footer' %>

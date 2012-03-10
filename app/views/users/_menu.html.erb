@@ -3,9 +3,6 @@
 		<li class="markermenu"><a href="/profile" >Home</a></li>
 		<li class="markermenu"><a href ="/mymail">Messages<% unless current_user.received_messages.count - current_user.viewed_messages.count == 0 %>(<%= current_user.received_messages.count - current_user.viewed_messages.count %>)<% end %></a></li>
 		<li class="markermenu"><a href="/<%= current_user.username %>" >Show Profile</a></li>
-		<li class="markermenu"><a href="/users">Meet People</a></li>
-
-		<li class="markermenu"><a href="/listings">View Listings</a></li>
 		<li class="markermenu"><a href ="/sent/new?to=1">Contact Us</a></li>
 		<li class="markermenu"><a href ="/log_out">Log Out</a></li>
 	</ul>
@@ -13,7 +10,5 @@
 	<ul class="markermenu">
 		<li class="markermenu"><a href="/sign_up" >Sign up</a></li>
 		<li class="markermenu"><a href="/log_in" >Log in</a></li>
-		<li class="markermenu"><a href="/listings">View Listings</a></li>
-		<li class="markermenu"><a href="/users">View Users</a></li>
 	</ul>
 <% end %>

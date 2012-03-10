@@ -41,13 +41,18 @@
 			<p><strong>To:</strong> <%=h @message.recipients.map(&:username).to_sentence %></p>
 			<p><strong>Received:</strong> <%= @message.created_at.to_s(:long) %></p>
 
-			<pre><%=h @message.body %></pre>
+			<p><%=h @message.body %></p>
 			<p>
 				<%= link_to "Reply", reply_message_path(@message) %>||
 				<%= link_to "Delete", message_path(@message), :method => "delete" %>
 			</p>
 
 		</div>
+	<div class='right_side'>
+		<div class='navigation'>
+			<%= render 'users/menu_right' %>
+		</div>
+	</div>
 <br clear="all" /></div>
 
 <%= render 'users/footer' %>

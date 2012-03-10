@@ -89,9 +89,18 @@
 						<div class="actions">
 							<%= f.submit "Update security"%>
 						</div>
+						<p>
+							If you choose to, you can delete your profile for any reason and you will always be welcome back if ever you want to come back. But keep in mind, you will not be able to get back any of the information you had on here after it is delete. Best wishes, and thank you for joining us.
+						</p>
+						<p><%= link_to '[Delete Profile]', @user, :method => :delete, :confirm => 'Are you sure you want to delete your profile? The whole profile will be deleted and you will not be able to get back any information.' %></p>
 					<% end %>
 					</div>
   </div>
+	<div class='right_side'>
+		<div class='navigation'>
+			<%= render 'users/menu_right' %>
+		</div>
+	</div>
 <br clear="all" /></div>
 
 <%= render 'footer' %>

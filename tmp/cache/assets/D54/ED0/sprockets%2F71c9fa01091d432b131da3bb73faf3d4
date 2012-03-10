@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"_version"%eb806e07d177836d0ab8b15fa75bfba5"lengthiå,"source"å,/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	"_version"%8a8cfea6f38ce5d6f85f09274fca9d7b"lengthiƒ,"source"ƒ,/* CSS Document */
 
 body {
 	margin: 0;
@@ -95,6 +95,10 @@ body {
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
 	padding-left: 10px;
+}
+
+.right_column div.message_container {
+	width: 540px;
 }
 
 .right_column div.listings ul{
@@ -746,4 +750,4 @@ li{
 	float: center;
 }
 
-"digest"%f38a035d7748e60af46c6f70627f16a5:@created_atf1331341182.9781661 öF:@expires_in0:@compressedF
+"digest"%31734dbcea7f52062c1444761a270b95:@created_atf1331348890.008785 èÔ:@expires_in0:@compressedF
