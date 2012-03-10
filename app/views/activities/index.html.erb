@@ -1,0 +1,50 @@
+<html>
+<body>
+<head><title>Social Playground
+</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<div class="header">
+	<%= render 'users/topmenu' %>
+  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1>
+	</div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+	<div id="avatar">
+		<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
+			<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
+		<% else %>
+			<%= current_user.username.capitalize %></h1>
+		<% end %>
+		<%= image_tag current_user.avatar.url(:small) %>
+	</div>
+	<br>
+<%= render 'users/menu' %>
+</div>
+
+<div class="navigationbtm"></div>
+ <br />
+ <img src="assets/images/family.png" alt="sample 2" />
+ </div>
+    <div class="right_column">
+			<div class='flash'>
+				<%= flash_helper %>
+			</div>
+			<h5>Activities For Families</h5>
+		<p>These are all ideas of things to do with the family for fun. Having a family night can be very important for a family. This is known to help the children learn from doing things with the family, and learn to play games by the rules. These are only a couple reasons for why Family fun activities can be so important. Add too these if you do not see something that you and your family do. It will start off small, but in time this will grow to many ideas and tips.</p>
+		<div class="hr"></div>
+		<div class='listings'>
+			<% for activity in @activities %>
+				<li><%=h link_to activity.title, "/activity/#{activity.id}" %></li>
+			<% end %>
+		</div>
+	</div>
+<br clear="all" /></div>
+
+<%= render 'users/footer' %>
+</body>
+</html>

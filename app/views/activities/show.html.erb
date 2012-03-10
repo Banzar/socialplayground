@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Social Playground</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<body>
+<div class="header">
+	<%= render 'users/topmenu' %>
+  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1></div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+	<div id="avatar">
+		<img src="/assets/images/family.png" alt="sample 2" />
+	</div>
+	<br>
+<%= render 'users/menu' %>
+ </div>
+
+<div class="navigationbtm"></div>
+ <br />
+ <img src="/assets/images/family.png" alt="sample 2" />
+ </div>
+	<div class="right_column">
+		<div class='flash'>
+			<%= flash_helper %>
+		</div>
+
+		<h7><%=h @activity.title %></h7>
+		<p><%=h @activity.description %></p>
+	</div>
+<br clear="all" /></div>
+
+<%= render 'users/footer' %>
+</body>
+</html>

@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"source"º+/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	"_version"%c8b3af6869d0c4d0d305ebceac2d0aa7"lengthi,"source",/* CSS Document */
 
 body {
 	margin: 0;
@@ -25,14 +25,14 @@ body {
 }
 
 .content_body{
-	width: 800px center;
+	width: 1000px center;
 	background-image:url(images/bg1.jpg);
 	background-repeat: repeat-x;
 	background-color:#F6F1DE;
 }
 
 .content_interior{
-	width:760px;
+	width:970px;
 	margin-left:auto;
 	margin-right: auto;
 }
@@ -89,7 +89,7 @@ body {
 
 .right_column {
 	width:545px;
-	float:right;
+	float:left;
 	margin-top:25px;
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
@@ -295,6 +295,25 @@ body {
 	width: 135px;
 	padding-left: 5px;
 	font-size: 80%;
+}
+
+.right_side {
+	width:200px;
+	float:right;
+	margin-top:25px;
+	overflow: hidden;
+}
+
+.right_side div.request a {
+	height: 20px;
+	margin-right: 1px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	color: #FF0000;
+	border: none;
 }
 
 .hr{
@@ -707,15 +726,12 @@ li{
 
 .user_events {
 	width: 200px
-	background-color: #ffffff;
 }
 
 .user_events li {
 	list-style: none;
 	margin: 0px;
-	background-color: #FFFFFF;
 	color: #000000;
-	border-bottom: 1px dashed #D2DADA;
 }
 
 .user_events.right_column div.default_right li { li:hover {
@@ -730,4 +746,4 @@ li{
 	float: center;
 }
 
-"digest"%401cfe793aa5ee33b692d45eb6348197"_version"%e03596c8320ed121549db4f148945c69"lengthiº+:@created_atf1331169762.368191 êq:@expires_in0:@compressedF
+"digest"%1ce34022aea4a55634f6153701c3cf9a:@created_atf1331326560.1692231 ‘ç:@expires_in0:@compressedF

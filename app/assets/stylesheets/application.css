@@ -24,14 +24,14 @@ body {
 }
 
 .content_body{
-	width: 800px center;
+	width: 1000px center;
 	background-image:url(images/bg1.jpg);
 	background-repeat: repeat-x;
 	background-color:#F6F1DE;
 }
 
 .content_interior{
-	width:760px;
+	width:970px;
 	margin-left:auto;
 	margin-right: auto;
 }
@@ -88,7 +88,7 @@ body {
 
 .right_column {
 	width:545px;
-	float:right;
+	float:left;
 	margin-top:25px;
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
@@ -294,6 +294,25 @@ body {
 	width: 135px;
 	padding-left: 5px;
 	font-size: 80%;
+}
+
+.right_side {
+	width:200px;
+	float:right;
+	margin-top:25px;
+	overflow: hidden;
+}
+
+.right_side div.request a {
+	height: 20px;
+	margin-right: 1px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	color: #FF0000;
+	border: none;
 }
 
 .hr{
@@ -706,15 +725,12 @@ li{
 
 .user_events {
 	width: 200px
-	background-color: #ffffff;
 }
 
 .user_events li {
 	list-style: none;
 	margin: 0px;
-	background-color: #FFFFFF;
 	color: #000000;
-	border-bottom: 1px dashed #D2DADA;
 }
 
 .user_events.right_column div.default_right li { li:hover {

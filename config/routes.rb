@@ -1,4 +1,9 @@
 Abby::Application.routes.draw do
+  get "activities/new"
+
+  get "/activity/:id", :controller => "activities", :action => "show"
+  get "family_fun" => "activities#index", :as => "family_fun"
+	get "new_activity" => "activities#new", :as => "new_activity"
   get "my_kids" => "kids#new", :as => "my_kids"
 	get "reply_message/:id", :controller => "messages", :action => "reply"
 	get "sent_mail" => "sent#index", :as => "sent_mail"
@@ -25,6 +30,7 @@ Abby::Application.routes.draw do
 
   root :to => "users#home"
 
+	resources :activities
 	resources :kids
 	resources :sent
 	resources :messages

@@ -1,0 +1,48 @@
+<html>
+<body>
+<head><title>Social Playground
+</title>
+<link rel="icon" 
+      type="image/ico" 
+      href="/assets/images/logo.ico">
+</head>
+<div class="header">
+	<%= render 'users/topmenu' %>
+  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  <h1 class="title">Social Playground</h1>
+	</div>
+</div>
+<div class="content_body">
+  <div class="content_interior"><div class="left_column"><div class="navigation">
+	<div id="avatar">
+		<img src="/assets/images/family.png" alt="sample 2" />
+	</div>
+	<br>
+<%= render 'users/menu' %>
+ </div>
+
+<div class="navigationbtm"></div>
+ <br />
+ </div>
+    <div class="right_column">
+			<div class='flash'>
+				<%= flash_helper %>
+			</div>
+			<h7>Add a family activity</h7>
+			<%= form_for Activity.new do |f| %>
+				<p>
+					<%= f.label :title %><br />
+					<%= f.text_field :title %>
+				</p>
+				<p>
+					<%= f.label :description %><br />
+					<%= f.text_area :description %>
+				</p>
+				<p><%= f.submit %></p>
+			<% end %>
+		</div>
+<br clear="all" /></div>
+
+<%= render 'users/footer' %>
+</body>
+</html>

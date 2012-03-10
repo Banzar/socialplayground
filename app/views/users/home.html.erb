@@ -1,58 +1,58 @@
 <html>
-<body>
-<head><title><% if current_user.first_name.present? %><%= current_user.first_name.capitalize %> <%=current_user.last_name.capitalize %><% else %>
+	<body>
+		<head>
+			<title><% if current_user.first_name.present? %><%= current_user.first_name.capitalize %> <%=current_user.last_name.capitalize %><% else %>
 <%= current_user.username.capitalize %><% end %>
-</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<div class="header">
-	<%= render 'topmenu' %>
-  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Social Playground
-</h1></div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-	<div id="avatar">
-		<h1><%= current_user.username %></h1>
-		<%= image_tag current_user.avatar.url(:small) %>
-
-		<p><%= useless_info %></p>
-		<% unless current_user.pending_friends.empty? %>
-		<div class='request'>
-			<%= link_to pluralize(current_user.pending_friends.length, "Friend Request"), friends_url %>
+			</title>
+		<link rel="icon" 
+				  type="image/ico" 
+				  href="/assets/images/logo.ico">
+		</head>
+		<div class="header">
+			<%= render 'topmenu' %>
+  		<div class="header_interior">
+				<img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
+  			<h1 class="title">Social Playground</h1>
+			</div>
 		</div>
-		<% end %>
-	</div>
-	<br>
-<%= render 'menu' %><br />
-
-<% unless @events.count == 0 %>
-<b>Social Events:</b>
-	<% @events.each do |event| %>
-		<div class="user_events">
-			<li>
-				<div class='button'>
-					<%= event.date %>
-				</div>
-				<div class='event_name'>
-					<%= link_to event.user.username.capitalize, "/#{event.user.username}" %> :<br />
-					<%= link_to event.event_name, "/event/#{event.id}" %>
-				</div><div class='clear'></div>
-			</li>
-		</div>
-	<% end %>
-<% end %>
-</div>
-
-<div class="navigationbtm"></div>
- <br />
- <img src="/assets/images/family.png" alt="sample 2" />
- </div>
+		<div class="content_body">
+  		<div class="content_interior">
+				<div class="left_column">
+					<div class="navigation">
+						<div id="avatar">
+							<h1><%= current_user.username %></h1>
+								<%= image_tag current_user.avatar.url(:small) %>
+								<p><%= useless_info %></p>
+								<% unless current_user.pending_friends.empty? %>
+									<div class='request'>
+										<%= link_to pluralize(current_user.pending_friends.length, "Friend Request"), friends_url %>
+									</div>
+								<% end %>
+						</div>
+						<br>
+							<%= render 'menu' %><br />
+							<% unless @events.count == 0 %>
+								<b>Social Events:</b>
+									<% @events.each do |event| %>
+										<div class="user_events">
+											<li>
+												<div class='button'>
+													<%= event.date %>
+												</div>
+												<div class='event_name'>
+													<%= link_to event.user.username.capitalize, "/#{event.user.username}" %> :
+													<%= link_to event.event_name, "/event/#{event.id}" %>
+												</div><div class='clear'></div>
+											</li>
+										</div>
+									<% end %>
+								<% end %>
+							</div>
+							<div class="navigationbtm"></div>
+ 								<br />
+ 								<img src="/assets/images/family.png" alt="sample 2" />
+ 		</div>
     <div class="right_column">
-
 			<h3>Whats on your mind?</h3>
 			<%= form_for Feed.new do |f| %>
 				<div id="new_feed_form">
@@ -87,6 +87,12 @@
 				<p><%= link_to "Read all feeds", feeds_url %></p>
 			<% end %>
   </div>
+	<div class='right_side'>
+		<div class='navigation'>
+			<!-- adding the right side menu here -->
+		</div>
+	</div>
+</div>
 <br clear="all" /></div>
 
 <%= render 'footer' %>
