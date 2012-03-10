@@ -64,8 +64,9 @@ body {
 	letter-spacing: 1px;
 	text-decoration: none;
 	text-align: center;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
+	font-family: Florence, cursive;
 	color: #FF0000;
 	border: none;
 }
@@ -93,6 +94,10 @@ body {
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
 	padding-left: 10px;
+}
+
+.right_column div.message_container {
+	width: 540px;
 }
 
 .right_column div.listings ul{
@@ -645,7 +650,6 @@ li{
 
 #feed_list li div.feed_message_container {
 	float: left;
-	margin-left: 10px;
 	width: 443px;
 }
 

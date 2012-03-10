@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"_version"%c8b3af6869d0c4d0d305ebceac2d0aa7"lengthi,"source",/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	"_version"%eb806e07d177836d0ab8b15fa75bfba5"lengthiå,"source"å,/* CSS Document */
 
 body {
 	margin: 0;
@@ -65,8 +65,9 @@ body {
 	letter-spacing: 1px;
 	text-decoration: none;
 	text-align: center;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
+	font-family: Florence, cursive;
 	color: #FF0000;
 	border: none;
 }
@@ -646,7 +647,6 @@ li{
 
 #feed_list li div.feed_message_container {
 	float: left;
-	margin-left: 10px;
 	width: 443px;
 }
 
@@ -746,4 +746,4 @@ li{
 	float: center;
 }
 
-"digest"%1ce34022aea4a55634f6153701c3cf9a:@created_atf1331326560.1692231 ‘ç:@expires_in0:@compressedF
+"digest"%f38a035d7748e60af46c6f70627f16a5:@created_atf1331341182.9781661 öF:@expires_in0:@compressedF

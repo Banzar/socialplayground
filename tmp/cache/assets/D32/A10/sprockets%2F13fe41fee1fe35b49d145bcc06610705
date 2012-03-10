@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{"	body",/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{"	body"å,/* CSS Document */
 
 body {
 	margin: 0;
@@ -65,8 +65,9 @@ body {
 	letter-spacing: 1px;
 	text-decoration: none;
 	text-align: center;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
+	font-family: Florence, cursive;
 	color: #FF0000;
 	border: none;
 }
@@ -646,7 +647,6 @@ li{
 
 #feed_list li div.feed_message_container {
 	float: left;
-	margin-left: 10px;
 	width: 443px;
 }
 
@@ -747,6 +747,6 @@ li{
 }
 
 "content_type"text/css"_version"%46dde6621c301f4928e3b34efee9e3b5"dependency_paths[{"	path"1$root/app/assets/stylesheets/application.css"
-mtimeu:	Time4	Ä  êﬂ"hexdigest"%2607ef3cc343f2bc30c422f9fb0c443a"asset_paths["1$root/app/assets/stylesheets/application.css"id"%c8b3af6869d0c4d0d305ebceac2d0aa7"
-mtime"2012-03-09T15:55:57-05:00"
-class"BundledAsset"pathname"1$root/app/assets/stylesheets/application.css"logical_path"application.css:@created_atf1331326560.1665249 ®X:@expires_in0:@compressedF
+mtimeu:	Time@	Ä  @Ó"hexdigest"%93a94a7065e777841c010ed8c64240ab"asset_paths["1$root/app/assets/stylesheets/application.css"id"%eb806e07d177836d0ab8b15fa75bfba5"
+mtime"2012-03-09T19:59:36-05:00"
+class"BundledAsset"pathname"1$root/app/assets/stylesheets/application.css"logical_path"application.css:@created_atf1331341182.9753151 kê:@expires_in0:@compressedF
