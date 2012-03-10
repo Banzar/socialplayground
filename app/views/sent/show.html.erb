@@ -39,7 +39,7 @@
 			<p><strong>To:</strong> <%= link_to "#{@message.recipients.map(&:username).to_sentence}", "/#{@message.recipients.map(&:username).to_sentence}" %></p>
 			<p><strong>Sent:</strong> <%= @message.created_at.to_s(:username) %></p>
 
-			<pre><%=h @message.body %></pre>
+			<pre width="400"><%=h @message.body %></pre>
 		</div>
   </div>
 	<div class='right_side'>
