@@ -38,7 +38,11 @@
 		<div class="hr"></div>
 		<div class='listings'>
 			<% for activity in @activities %>
-				<li><%=h link_to activity.title, "/activity/#{activity.id}" %></li>
+
+					<p>
+						<h7><%=h activity.title %></h7><br />
+						<%=h activity.description %>
+					</p>
 			<% end %>
 		</div>
 	</div>
