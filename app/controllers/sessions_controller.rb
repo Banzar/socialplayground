@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:email], params[:password])
     if user
+			params[:zip] = { :zip_code => "2" }
+			user.update_attributes(params[:zip])
       session[:user_id] = user.id
       redirect_to root_url
     else
@@ -14,6 +16,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+		params[:zip] = { :zip_code => "1" }
+		user = current_user
+		user.update_attributes(params[:zip])
     session[:user_id] = nil
     redirect_to root_url
   end

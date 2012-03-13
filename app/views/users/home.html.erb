@@ -12,7 +12,7 @@
 			<%= render 'topmenu' %>
   		<div class="header_interior">
 				<img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  			<h1 class="title">Social Playground</h1>
+  			<h1 class="title">Our Children Play</h1>
 			</div>
 		</div>
 		<div class="content_body">
@@ -23,12 +23,12 @@
 							<h1><%= current_user.username %></h1>
 								<%= image_tag current_user.avatar.url(:small) %>
 								<p><%= useless_info %></p>
-								<% unless current_user.pending_friends.empty? %>
-									<div class='request'>
-										<%= link_to pluralize(current_user.pending_friends.length, "Friend Request"), friends_url %>
-									</div>
-								<% end %>
 						</div>
+							<% unless current_user.pending_friends.empty? %>
+								<div class='request'>
+									<%= link_to pluralize(current_user.pending_friends.length, "Friend Request"), friends_url %>
+								</div>
+							<% end %>
 						<br>
 							<%= render 'menu' %><br />
 							<% unless @events.count == 0 %>

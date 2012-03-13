@@ -91,6 +91,7 @@ class UsersController < ApplicationController
 
 	def new
   	@user = User.new
+		@online = User.find(:all, :conditions => [ "zip_code = 2" ])
   end
 
 	def show
@@ -98,6 +99,7 @@ class UsersController < ApplicationController
 			@user = User.find_by_username(params[:username])
 			@friends = @user.friends.all
 			@children = @user.kids.all
+			@online = User.find(session[@user.id]) if session[@user.id]
 		else
 			redirect_to sign_up_url
 		end

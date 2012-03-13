@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20120311004602) do
     t.string   "title"
     t.text     "text"
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -140,10 +141,6 @@ ActiveRecord::Schema.define(:version => 20120311004602) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "mothers_first_name"
-    t.string   "mothers_last_name"
-    t.string   "fathers_first_name"
-    t.string   "fathers_last_name"
   end
 
 end
