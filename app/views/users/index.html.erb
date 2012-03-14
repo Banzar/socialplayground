@@ -44,6 +44,8 @@
 							</li>
 					<% end %>
 				<% end %>
+				<%= will_paginate @users %>
+
 					<% unless current_user %>
 						<p>These are the users of Social playground. Have a look, but to view any of the profiles you will have to be logged in.</p>
 						<% @users.each do |user| %>
@@ -66,6 +68,7 @@
 						<% end %>
 							</li>
 					<% end %>
+				<%= will_paginate @users %>
 		</div>
 			<div class='right_side'>
 
