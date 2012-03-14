@@ -10,13 +10,18 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+
   end
 
 	def index
-		@activities = Activity.all
+		@activities = Activity.paginate(:page => params[:page], :per_page => 15, :order => "activities.created_at DESC")
 	end
 
 	def show
 		@activity = Activity.find(params[:id])
+	end
+
+	def update
+
 	end
 end

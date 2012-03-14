@@ -26,12 +26,12 @@
 					<div class="hr"></div>
 					<div class='listings'>
 						<% for activity in @activities %>
-
-								<p>
-									<h7><%=h activity.title %></h7><br />
-									<%=h activity.description %>
-								</p>
+							<p>
+								<h7><%=h activity.title %></h7><br />
+								<%=h activity.description %>
+							</p>
 						<% end %>
+						<%= will_paginate @activities %>
 					</div>
 				</div>
 				<div class='right_side'>
