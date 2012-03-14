@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   end
 
 	def index
-		@users = User.all(:order => ["state"])
+		@users = User.paginate(:page => params[:page], :per_page => 10, :order => ["state"])
 	end
 
 	def items
