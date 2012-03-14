@@ -1,5 +1,4 @@
 Abby::Application.routes.draw do
-  get "activities/new"
 	get "posts" => "posts#index", :as => "posts"
 	get "post/:id", :controller => "posts", :action => "show"
   get "/activity/:id", :controller => "activities", :action => "show"

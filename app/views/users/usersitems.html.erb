@@ -1,82 +1,69 @@
 <html>
-<body>
-<head><title>Our Children Play
-</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<div class="header">
-	<% if current_user %>
-		<%= render 'topmenu' %>
-	<% end %>
-  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1>
-	</div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-	<div id="avatar">
-		<% if current_user %>
-			<h1><% if @user.first_name.present? && @user.last_name.present? %>
-				<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-			<% else %>
-				<%= @user.username.capitalize %></h1>
-			<% end %>
-			<%= image_tag @user.avatar.url(:small) %>
-		<% end %>
-	</div>
-	<br>
-<%= render 'menu' %>
-</div>
-
-<div class="navigationbtm"></div>
- <br />
- <img src="/assets/images/family.png" alt="sample 2" />
- </div>
-    <div class="right_column">
-
-			<% if @item.user == current_user %>
-			<div id="event_form">
-				<div class='flash'>
-					<%= flash_helper %>
-				</div>
-					<%= form_for @item do |f| %>
-						<p>
-							<%= f.label :item %><br>
-							<%= f.text_field :item %>
-						</p>
-						<p>
-							<%= f.label :description %><br>
-							<%= f.text_area :description %>
-						</p>
-						<p>
-							<%= image_tag @item.photo.url(:large) %>
-						</p>
-						<p>
-							<%= f.label :photo %><br>
-							<%= f.file_field :photo %>
-						</p>
-						<p>
-							<%= f.submit %>
-						</p>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				<% if current_user %>
+					<h1><% if @user.first_name.present? && @user.last_name.present? %>
+						<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+					<% else %>
+						<%= @user.username.capitalize %></h1>
 					<% end %>
+					<%= image_tag @user.avatar.url(:small) %>
+				<% end %>
 			</div>
-			<% else %>
-						<h3><%=h @item.item %></h3> 
-						<div id='event'>
-							<%=h @item.description %><br><br />
-							<div align="center">
-								<%= image_tag @item.photo.url(:large) %>
-							</div>
-						</div>
-			<% end %>
+			<br>
+		<%= render 'menu' %>
 		</div>
-	<div class='right_side'>
 
-	</div>
-<br clear="all" /></div>
+		<div class="navigationbtm"></div>
+		 <br />
+		 <img src="/assets/images/family.png" alt="sample 2" />
+		 </div>
+				<div class="right_column">
 
-<%= render 'footer' %>
-</body>
+					<% if @item.user == current_user %>
+					<div id="event_form">
+						<div class='flash'>
+							<%= flash_helper %>
+						</div>
+							<%= form_for @item do |f| %>
+								<p>
+									<%= f.label :item %><br>
+									<%= f.text_field :item %>
+								</p>
+								<p>
+									<%= f.label :description %><br>
+									<%= f.text_area :description %>
+								</p>
+								<p>
+									<%= image_tag @item.photo.url(:large) %>
+								</p>
+								<p>
+									<%= f.label :photo %><br>
+									<%= f.file_field :photo %>
+								</p>
+								<p>
+									<%= f.submit %>
+								</p>
+							<% end %>
+					</div>
+					<% else %>
+								<h3><%=h @item.item %></h3> 
+								<div id='event'>
+									<%=h @item.description %><br><br />
+									<div align="center">
+										<%= image_tag @item.photo.url(:large) %>
+									</div>
+								</div>
+					<% end %>
+				</div>
+			<div class='right_side'>
+
+			</div>
+		<br clear="all" /></div>
+
+		<%= render 'footer' %>
+	</body>
 </html>

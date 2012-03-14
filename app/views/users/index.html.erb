@@ -1,88 +1,77 @@
 <html>
-<head><title>Our Children Play</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<body>
-<div class="header">
-	<% if current_user %>
-		<%= render 'topmenu' %>
-	<% end %>
-  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1></div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-		<div id="avatar">
-			 <img src="assets/images/family.png" alt="sample 2" />
-		</div>
-	<br>
-<%= render 'menu' %> 
-	</div>
-<div class="navigationbtm"></div>
- <br />
-</div>
-	<div class="right_column">
-		<ul id="user_list">
-			<div class='flash'>
-				<%= flash_helper %>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+				<div id="avatar">
+					 <img src="assets/images/family.png" alt="sample 2" />
+				</div>
+			<br>
+		<%= render 'menu' %> 
 			</div>
-			<% if current_user %>
-				<% @users.each do |user| %>
-						<li <% if @users.first == user %> class="first"<% end %>>
-							<% if user.avatar.file? %>
-								<%= image_tag user.avatar.url(:thumb) %>
-							<% else %>
-								<img src="assets/images/nopic2.gif">
-							<% end %>
-						<div class="user_message_container">
-							<%= link_to user.username.capitalize, user.username %>
-							<% if @online %>
-								<font color='red'>Online</font><br />
-							<% end %>
-							<% if user.county.present? && user.state.present? %>
-								<b><%= h user.county %>, <%= user.state %></b>
-							<% end %>
-							<div class="button">
-								<% unless user == current_user || current_user.requested_friends.include?(user) || current_user.friends.include?(user) || current_user.pending_friends.include?(user) %>
-									<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
-								<% end %>
-							</div><br />
-							<%= h user.about_us %>
+		<div class="navigationbtm"></div>
+		 <br />
+		</div>
+			<div class="right_column">
+				<ul id="user_list">
+					<div class='flash'>
+						<%= flash_helper %>
 					</div>
-					<div class="clear"></div>
-					</li>
-			<% end %>
-		<% end %>
-			<% unless current_user %>
-				<p>These are the users of Social playground. Have a look, but to view any of the profiles you will have to be logged in.</p>
-				<% @users.each do |user| %>
-					<li <% if @users.first == user %>class="first"<% end %>>
-								<% if user.avatar.file? %>
-									<%= image_tag user.avatar.url(:thumb) %>
-								<% else %>
-									<img src="/assets/images/nopic2.gif">
-								<% end %>
+					<% if current_user %>
+						<% @users.each do |user| %>
+								<li <% if @users.first == user %> class="first"<% end %>>
+									<% if user.avatar.file? %>
+										<%= image_tag user.avatar.url(:thumb) %>
+									<% else %>
+										<img src="assets/images/nopic2.gif">
+									<% end %>
 								<div class="user_message_container">
 									<%= link_to user.username.capitalize, user.username %>
-									<% if user.state.present? && user.county.present? %>
-										<b><%= h user.county %>, <%= user.state %></b><br />
-										<%= h user.about_us %>
-									<% else %>
-										<b><%= h user.state %></b>
+									<% if @online %>
+										<font color='red'>Online</font><br />
 									<% end %>
+									<% if user.county.present? && user.state.present? %>
+										<b><%= h user.county %>, <%= user.state %></b>
+									<% end %>
+									<div class="button">
+										<% unless user == current_user || current_user.requested_friends.include?(user) || current_user.friends.include?(user) || current_user.pending_friends.include?(user) %>
+											<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+										<% end %>
+									</div><br />
+									<%= h user.about_us %>
 							</div>
 							<div class="clear"></div>
+							</li>
+					<% end %>
 				<% end %>
-					</li>
-			<% end %>
-</div>
-	<div class='right_side'>
+					<% unless current_user %>
+						<p>These are the users of Social playground. Have a look, but to view any of the profiles you will have to be logged in.</p>
+						<% @users.each do |user| %>
+							<li <% if @users.first == user %>class="first"<% end %>>
+										<% if user.avatar.file? %>
+											<%= image_tag user.avatar.url(:thumb) %>
+										<% else %>
+											<img src="/assets/images/nopic2.gif">
+										<% end %>
+										<div class="user_message_container">
+											<%= link_to user.username.capitalize, user.username %>
+											<% if user.state.present? && user.county.present? %>
+												<b><%= h user.county %>, <%= user.state %></b><br />
+												<%= h user.about_us %>
+											<% else %>
+												<b><%= h user.state %></b>
+											<% end %>
+									</div>
+									<div class="clear"></div>
+						<% end %>
+							</li>
+					<% end %>
+		</div>
+			<div class='right_side'>
 
-	</div>
-<br clear="all" /></div>
+			</div>
+		<br clear="all" /></div>
 
-<%= render 'footer' %>
-</body>
+		<%= render 'footer' %>
+	</body>
 </html>

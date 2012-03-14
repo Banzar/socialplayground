@@ -1,4 +1,6 @@
 class MailboxController < ApplicationController
+	before_filter :login_required
+
   def index
     redirect_to new_session_path and return unless logged_in?
     @folder = current_user.inbox

@@ -1,108 +1,99 @@
 <html>
-<head><title>Our Children Play</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<body>
-<div class="header">
-	<%= render 'users/topmenu' %>
-  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1></div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-		<div id="avatar">
-			 <img src="assets/images/family.png" alt="sample 2" />
+	<body>
+		<%= render 'layouts/header' %>
+	<div class="content_body">
+		<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				 <img src="assets/images/family.png" alt="sample 2" />
+			</div>
+		<br>
+	<%= render 'users/menu' %> 
 		</div>
-	<br>
-<%= render 'users/menu' %> 
+	<div class="navigationbtm"></div>
+	 <br />
 	</div>
-<div class="navigationbtm"></div>
- <br />
-</div>
-	<div class="right_column">
-		<div class="event_form">
-			<div class='flash'>
-				<%= flash_helper %>
-			</div>
-			<div class='default_left'>
-				<%= form_for Kid.new, :html => { :multipart => true } do |f| %>
-					<p>
-						<%= f.label :photo %><br>
-						<%= f.file_field :photo %>
-					</p>
-					<p>
-						<%= f.radio_button :sex, "Male"	%>
-						<%= f.label :sex, "Male" %>
-						<%= f.radio_button :sex, "Female" %>
-						<%= f.label :sex, "Female" %>
-					</p>
-					<p>
-						<%= f.label :first_name %><br />
-						<%= f.text_field :first_name %>
-					</p>
-					<p>
-						<%= f.label :last_name %><br />
-						<%= f.text_field :last_name %>
-					</p>
-					<p>
-						<%= f.label :birthday %><br />
-						<%= f.date_select :birthday, :start_year => Time.now.year - 25, :end_year => Time.now.year, :order => [:month, :day, :year] %>
-					</p>
-					<p>
-						<%= f.label :grade %><br />
-						<%= f.select :grade, child_grade %>
-					</p>
-					<p>
-						<%= f.label :school %><br />
-						<%= f.text_field :school %>
-					</p>
-					<p>
-						<%= f.label :hobbies %><br />
-						<%= f.text_field :hobbies %>
-					</p>
-					<p>
-						<%= f.submit "Add" %>
-					</p>
-				<% end %>
-			</div>
-			<div class='default_right'>
-				<% if @kids.count == 0 %>
-					<h5>Your kids will go here</h5>
-					<p>
-						This is the spot to add your children, and update your childrens information, change the picture as they get older and so on.
-					</p>
-				<% else %>
-					<h5>My Children</h5>
-					<% @kids.each do |kid| %>
-						<div class='children'>
-							<li>
-								<% if kid.photo.file? %>
-									<%= image_tag kid.photo.url(:thumb) %>
-								<% else %>
-									<img src="/assets/images/childprofile2.jpg">
-								<% end %>
-								<div class='container'>
-									<div class='button'>
-										<%= link_to "remove", kid, :method => :delete %><br>
-									</div>
-									<%=h link_to "#{kid.first_name}", "/kids/#{kid.id}" %><br />
-									<%= kid.sex %><br />
-									<%= time_ago_in_words kid.birthday %> old.
-								</div>
-							</li>
-						</div>
+		<div class="right_column">
+			<div class="event_form">
+				<div class='flash'>
+					<%= flash_helper %>
+				</div>
+				<div class='default_left'>
+					<%= form_for Kid.new, :html => { :multipart => true } do |f| %>
+						<p>
+							<%= f.label :photo %><br>
+							<%= f.file_field :photo %>
+						</p>
+						<p>
+							<%= f.radio_button :sex, "Male"	%>
+							<%= f.label :sex, "Male" %>
+							<%= f.radio_button :sex, "Female" %>
+							<%= f.label :sex, "Female" %>
+						</p>
+						<p>
+							<%= f.label :first_name %><br />
+							<%= f.text_field :first_name %>
+						</p>
+						<p>
+							<%= f.label :last_name %><br />
+							<%= f.text_field :last_name %>
+						</p>
+						<p>
+							<%= f.label :birthday %><br />
+							<%= f.date_select :birthday, :start_year => Time.now.year - 25, :end_year => Time.now.year, :order => [:month, :day, :year] %>
+						</p>
+						<p>
+							<%= f.label :grade %><br />
+							<%= f.select :grade, child_grade %>
+						</p>
+						<p>
+							<%= f.label :school %><br />
+							<%= f.text_field :school %>
+						</p>
+						<p>
+							<%= f.label :hobbies %><br />
+							<%= f.text_field :hobbies %>
+						</p>
+						<p>
+							<%= f.submit "Add" %>
+						</p>
 					<% end %>
-				<% end %>
-			</div><div class='clear'></div>
+				</div>
+				<div class='default_right'>
+					<% if @kids.count == 0 %>
+						<h5>Your kids will go here</h5>
+						<p>
+							This is the spot to add your children, and update your childrens information, change the picture as they get older and so on.
+						</p>
+					<% else %>
+						<h5>My Children</h5>
+						<% @kids.each do |kid| %>
+							<div class='children'>
+								<li>
+									<% if kid.photo.file? %>
+										<%= image_tag kid.photo.url(:thumb) %>
+									<% else %>
+										<img src="/assets/images/childprofile2.jpg">
+									<% end %>
+									<div class='container'>
+										<div class='button'>
+											<%= link_to "remove", kid, :method => :delete %><br>
+										</div>
+										<%=h link_to "#{kid.first_name}", "/kids/#{kid.id}" %><br />
+										<%= kid.sex %><br />
+										<%= time_ago_in_words kid.birthday %> old.
+									</div>
+								</li>
+							</div>
+						<% end %>
+					<% end %>
+				</div><div class='clear'></div>
+			</div>
 		</div>
-	</div>
-	<div class='right_side'>
+		<div class='right_side'>
 
-	</div>
-<br clear="all" /></div>
+		</div>
+		<br clear="all" /></div>
 
-<%= render 'users/footer' %>
-</body>
+		<%= render 'users/footer' %>
+	</body>
 </html>

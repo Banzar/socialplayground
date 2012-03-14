@@ -1,78 +1,68 @@
 <html>
-<head><title>
-Sign up!
-</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<body>
-<div class="header">
-  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1></div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-	<div id="avatar">
-		 <img src="assets/images/family.png" alt="sample 2" />
-	</div>
-	<br>
-<%= render 'menu' %>
-
-		</div>
-
-<div class="navigationbtm"></div>
- <br />
- </div>
-    <div class="right_column">
-			<div class="sign_up_left">
-		    <h1>Welcome to Our Children Play</h1>
-		    <p>Here you are able to browse other families and meet other parents. Arrange play dates with your kids and other kids easier then before. Here is the only place where you can find just the right fit for your family. Many parents do not have many kids in the area they live. This makes getting to know other parents that want to get their kids out and have a good time, easy and safe. However, when arranging play dates with new friends, please be safe, always meet in public places. Never meet in a home, not before you feel as though you know the person.</p>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				 <img src="assets/images/family.png" alt="sample 2" />
 			</div>
-			<div class="sign_up_right">
+			<br>
+		<%= render 'menu' %>
 
-				<h1>Sign up</h1>
-				<p>Already have an account? <%= link_to "Log in!", log_in_path %></p>
-				<%= form_for @user do |f| -%>
-						<% if @user.errors.any? %>
-							<div class="error_messages">
-								<h6>Form is invalid</h6>
-								<ul>
-									<% for message in @user.errors.full_messages %>
-										<li><%= message %></li>
-									<% end %>
-								</ul>
-							</div>
+				</div>
+
+		<div class="navigationbtm"></div>
+		 <br />
+		 </div>
+				<div class="right_column">
+					<div class="sign_up_left">
+						<h1>Welcome to Social Parents</h1>
+						<p>Here you are able to browse other families and meet other parents. Arrange play dates with your kids and other kids easier then before. Here is the only place where you can find just the right fit for your family. Many parents do not have many kids in the area they live. This makes getting to know other parents that want to get their kids out and have a good time, easy and safe. However, when arranging play dates with new friends, please be safe, always meet in public places.</p>
+					<p>We are going through many changes regularly, the most recent is the change in website. Our new website is <a href="http://social-parents.com">Social-Parents.com</a>. We are just beginning here, so though there are not many users, we hope that you stay and watch as we grow. There will be more people soon, just be patient.</p>
+					</div>
+					<div class="sign_up_right">
+						<h1>Sign up</h1>
+						<p>Already have an account? <%= link_to "Log in!", log_in_path %></p>
+						<%= form_for @user do |f| -%>
+								<% if @user.errors.any? %>
+									<div class="error_messages">
+										<h6>Form is invalid</h6>
+										<ul>
+											<% for message in @user.errors.full_messages %>
+												<li><%= message %></li>
+											<% end %>
+										</ul>
+									</div>
+								<% end %>
+								<p>
+									<%= f.label :state %><br />
+									<%= f.select :state, us_states %>
+								</p>
+								<p>
+									<%= f.label :username %><br />
+									<%= f.text_field :username %>
+								</p>
+								<p>
+									<%= f.label :email %><br />
+									<%= f.text_field :email %>
+								</p>
+								<p>
+									<%= f.label :password %><br />
+									<%= f.password_field :password %>
+								</p>
+								<p>
+									<%= f.label :password_confirmation %><br />
+									<%= f.password_field :password_confirmation %>
+								</p>
+							<p class="button"><%= f.submit %></p>
 						<% end %>
-						<p>
-							<%= f.label :state %><br />
-							<%= f.select :state, us_states %>
-						</p>
-						<p>
-							<%= f.label :username %><br />
-							<%= f.text_field :username %>
-						</p>
-						<p>
-							<%= f.label :email %><br />
-							<%= f.text_field :email %>
-						</p>
-						<p>
-							<%= f.label :password %><br />
-							<%= f.password_field :password %>
-						</p>
-						<p>
-							<%= f.label :password_confirmation %><br />
-							<%= f.password_field :password_confirmation %>
-						</p>
-					<p class="button"><%= f.submit %></p>
-				<% end %>
+					</div>
+		</div>
+			<div class='right_side'>
+
 			</div>
-</div>
-	<div class='right_side'>
+		<br clear="all" /></div>
 
-	</div>
-<br clear="all" /></div>
-
-<%= render 'footer' %>
-</body>
+		<%= render 'footer' %>
+	</body>
 </html>

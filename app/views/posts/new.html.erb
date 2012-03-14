@@ -1,44 +1,33 @@
 <html>
-<body>
-<head><title>Our Children Play
-</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<div class="header">
-	<%= render 'users/topmenu' %>
-  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1>
-	</div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-	<div id="avatar">
-		<img src='/assets/images/family.png'>
-	</div>
-	<br>
-<%= render 'users/menu' %>
- </div>
-
-<div class="navigationbtm"></div>
- <br />
- </div>
-    <div class="right_column">
-			<div class='flash'>
-				<%= flash_helper %>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				<img src='/assets/images/family.png'>
 			</div>
-			<h1>New post</h1>
+			<br>
+		<%= render 'users/menu' %>
+		 </div>
 
-			<%= render 'form' %>
+		<div class="navigationbtm"></div>
+		 <br />
+		 </div>
+				<div class="right_column">
+					<div class='flash'>
+						<%= flash_helper %>
+					</div>
+					<h1>New post</h1>
 
-			<%= link_to 'Back', posts_path %>
-		</div>
-	<div class='right_side'>
+					<%= render 'form' %>
 
-	</div>
-<br clear="all" /></div>
+					<%= link_to 'Back', posts_path %>
+				</div>
+			<div class='right_side'>
 
-<%= render 'users/footer' %>
-</body>
+			</div>
+		<br clear="all" /></div>
+
+		<%= render 'users/footer' %>
+	</body>
 </html>

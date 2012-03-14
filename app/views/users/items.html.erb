@@ -1,83 +1,74 @@
 <html>
-<head><title>Our Children Play</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<body>
-<div class="header">
-	<%= render 'topmenu' %>
-  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1></div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-		<div id="avatar">
-			 <img src="assets/images/family.png" alt="sample 2" />
-		</div>
-	<br>
-<%= render 'menu' %> 
-	</div>
-<div class="navigationbtm"></div>
- <br />
-</div>
-	<div class="right_column">
-		<div class="event_form">
-			<div class='flash'>
-				<%= flash_helper %>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+				<div id="avatar">
+					 <img src="assets/images/family.png" alt="sample 2" />
+				</div>
+			<br>
+		<%= render 'menu' %> 
 			</div>
-			<div class='default_left'>
-				<%= form_for Item.new, :html => { :multipart => true } do |f| %>
-					<p>
-					<%= f.label :item %><br>
-					<%= f.text_field :item %>
-					</p>
-					<p>
-						<%= f.label :state %><br>
-						<%= f.select :state, us_states %>
-					</p>
-					<p>
-						<%= f.label :photo %><br>
-						<%= f.file_field :photo %>
-					</p>
-					<p>
-					<%= f.label :description %><br>
-					<%= f.text_area :description %>
-					</p>
-					<p>
-					<%= f.submit "Post Item" %>
-					</p>
-				<% end %>
-			</div>
-			<div class='default_right'>
-
-				<% if @items.count == 0 %>
-					<h5>List Your Old Stuff</h5>
-					<p>
-						Based on the term 'One persons trash is another persons treasure.' We are setting up a personal place to find items that are no longer needed by others, that you may need.<br /> 
-					<br />
-						For the term 'Pay it forward.' If you have something that your family can no longer use, like old clothes that may help someone else, please post it. This is set up to be a free service. From one family to another. We want to make it simple for getting rid of that which you do not need, and to find something you may.
-					</p>
-				<% else %>
-					<h5>Current Listings</h5>
-					<p><font color='red'>Remember, when your item is no longer available, please delete it.</font></p>
-					<% @items.each do |item| %>
-						<li>
-							<div class='button'>
-								<%= link_to "delete", item, :method => :delete %><br>
-							</div>
-							<%=h link_to "#{item.item}", "/item/#{item.id}" %>
-						</li>
-					<% end %>
-				<% end %>
-			</div><div class='clear'></div>
+		<div class="navigationbtm"></div>
+		 <br />
 		</div>
-	</div>
-	<div class='right_side'>
+			<div class="right_column">
+				<div class="event_form">
+					<div class='flash'>
+						<%= flash_helper %>
+					</div>
+					<div class='default_left'>
+						<%= form_for Item.new, :html => { :multipart => true } do |f| %>
+							<p>
+							<%= f.label :item %><br>
+							<%= f.text_field :item %>
+							</p>
+							<p>
+								<%= f.label :state %><br>
+								<%= f.select :state, us_states %>
+							</p>
+							<p>
+								<%= f.label :photo %><br>
+								<%= f.file_field :photo %>
+							</p>
+							<p>
+							<%= f.label :description %><br>
+							<%= f.text_area :description %>
+							</p>
+							<p>
+							<%= f.submit "Post Item" %>
+							</p>
+						<% end %>
+					</div>
+					<div class='default_right'>
 
-	</div>
-<br clear="all" /></div>
+						<% if @items.count == 0 %>
+							<h5>List Your Old Stuff</h5>
+							<p>
+								Based on the term 'One persons trash is another persons treasure.' We are setting up a personal place to find items that are no longer needed by others, that you may need.<br /> 
+							<br />
+								For the term 'Pay it forward.' If you have something that your family can no longer use, like old clothes that may help someone else, please post it. This is set up to be a free service. From one family to another. We want to make it simple for getting rid of that which you do not need, and to find something you may.
+							</p>
+						<% else %>
+							<h5>Current Listings</h5>
+							<p><font color='red'>Remember, when your item is no longer available, please delete it.</font></p>
+							<% @items.each do |item| %>
+								<li>
+									<div class='button'>
+										<%= link_to "delete", item, :method => :delete %><br>
+									</div>
+									<%=h link_to "#{item.item}", "/item/#{item.id}" %>
+								</li>
+							<% end %>
+						<% end %>
+					</div><div class='clear'></div>
+				</div>
+			</div>
+			<div class='right_side'>
 
-<%= render 'footer' %>
-</body>
+			</div>
+		<br clear="all" /></div>
+
+		<%= render 'footer' %>
+	</body>
 </html>

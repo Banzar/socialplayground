@@ -1,89 +1,78 @@
 <html>
-<body>
-<head><title>Our Children Play
-</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<div class="header">
-	<%= render 'topmenu' %>
-  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1>
-	</div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-	<div id="avatar">
-		<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
-			<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
-		<% else %>
-			<%= current_user.username.capitalize %></h1>
-		<% end %>
-		<%= image_tag current_user.avatar.url(:small) %>
-	</div>
-	<br>
-<%= render 'menu' %>
-</div>
-
-<div class="navigationbtm"></div>
- <br />
- <img src="assets/images/family.png" alt="sample 2" />
- </div>
-    <div class="right_column">
-			<div id="event_form">
-				<div class='flash'>
-					<%= flash_helper %>
-				</div>
-				<%= form_for Event.new do |f| %>
-					<p>
-						<%= f.label :event_name %><br>
-						<%= f.text_field :event_name %>
-					</p>
-					<p>
-						<%= f.label :event_description %><br>
-						<%= f.text_area :event_description %>
-					</p>
-					<p>
-						<%= f.label :date %><br>
-						<%= f.date_select :date, :order => [:month, :day, :year] %>
-					</p>
-					<p>
-						<%= f.label :start_time %><br>
-						<%= f.text_field :start_time %>
-					</p>
-					<p>
-						<%= f.submit %>
-					</p>
-				<% end %>
-			</div><div classs='clear'></div>
-
-			<div class='event_list_right'>
-				<% if @events.count == 0 %>
-					<h5>Post Your Events</h5>
-					<p>
-						Here you can post the events that you are throwing. If you are having a party for your childs birthday, this would be a good place to let all your friends know. If you wanted to have a night out with the family and friends, you could post it here so that your friends will know.<br /><br />
-						Please remember, after the event, you should delete it, so it is not still on your friends event list.
-					</p>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
+					<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
 				<% else %>
-					<% for event in current_user.events %>
-						<li <% if current_user.events.first == event %> class='first'<% end %>>
-							<div class='button'>
-								<%= link_to "delete", event, :method => :delete %><br>
-							</div>
-							<%=h link_to event.event_name, "/event/#{event.id}" %>
-							(<%= event.date %>)<br>
-						</li>
-					<% end %>
+					<%= current_user.username.capitalize %></h1>
 				<% end %>
-			</div><div classs='clear'></div>
+				<%= image_tag current_user.avatar.url(:small) %>
+			</div>
+			<br>
+		<%= render 'menu' %>
 		</div>
-	<div class='right_side'>
 
-	</div>
-<br clear="all" /></div>
+		<div class="navigationbtm"></div>
+		 <br />
+		 <img src="assets/images/family.png" alt="sample 2" />
+		 </div>
+				<div class="right_column">
+					<div id="event_form">
+						<div class='flash'>
+							<%= flash_helper %>
+						</div>
+						<%= form_for Event.new do |f| %>
+							<p>
+								<%= f.label :event_name %><br>
+								<%= f.text_field :event_name %>
+							</p>
+							<p>
+								<%= f.label :event_description %><br>
+								<%= f.text_area :event_description %>
+							</p>
+							<p>
+								<%= f.label :date %><br>
+								<%= f.date_select :date, :order => [:month, :day, :year] %>
+							</p>
+							<p>
+								<%= f.label :start_time %><br>
+								<%= f.text_field :start_time %>
+							</p>
+							<p>
+								<%= f.submit %>
+							</p>
+						<% end %>
+					</div><div classs='clear'></div>
 
-<%= render 'footer' %>
-</body>
+					<div class='event_list_right'>
+						<% if @events.count == 0 %>
+							<h5>Post Your Events</h5>
+							<p>
+								Here you can post the events that you are throwing. If you are having a party for your childs birthday, this would be a good place to let all your friends know. If you wanted to have a night out with the family and friends, you could post it here so that your friends will know.<br /><br />
+								Please remember, after the event, you should delete it, so it is not still on your friends event list.
+							</p>
+						<% else %>
+							<% for event in current_user.events %>
+								<li <% if current_user.events.first == event %> class='first'<% end %>>
+									<div class='button'>
+										<%= link_to "delete", event, :method => :delete %><br>
+									</div>
+									<%=h link_to event.event_name, "/event/#{event.id}" %>
+									(<%= event.date %>)<br>
+								</li>
+							<% end %>
+						<% end %>
+					</div><div classs='clear'></div>
+				</div>
+			<div class='right_side'>
+
+			</div>
+		<br clear="all" /></div>
+
+		<%= render 'footer' %>
+	</body>
 </html>
 

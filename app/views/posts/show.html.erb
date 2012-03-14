@@ -1,73 +1,67 @@
 <html>
-<body>
-<head><title>Our Children Play
-</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<div class="header">
-	<%= render 'users/topmenu' %>
-  <div class="header_interior"><img src="/assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1>
-	</div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-	<div id="avatar">
-		<img src='/assets/images/family.png'>
-	</div>
-	<br>
-<%= render 'users/menu' %>
- </div>
-
-<div class="navigationbtm"></div>
- <br />
- </div>
-    <div class="right_column">
-			<div class='flash'>
-				<%= flash_helper %>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				<img src='/assets/images/family.png'>
 			</div>
-			<p>
-				<b>Title:</b>
-				<%= @post.title %>
-			</p>
+			<br>
+		<%= render 'users/menu' %>
+		 </div>
 
-			<p>
-				<b>Text:</b>
-				<%= @post.text %>
-			</p>
-			<h7>Comments</h7>
-			<% @post.comments.each do |comment| %>
-				<p>
-					<b>Name:</b> <%= comment.name %><br>
-					<b>Comment:</b> <%= comment.text %><br>
-					<%= time_ago_in_words comment.created_at %> ago
-				</p>
-			<% end %>
+		<div class="navigationbtm"></div>
+		 <br />
+		 </div>
+				<div class="right_column">
+					<div class='flash'>
+						<%= flash_helper %>
+					</div>
+					<p>
+						<b>Title:</b>
+						<%= @post.title %>
+					</p>
 
-			<%= form_for [@post, @post.comments.build] do |f| -%>
-				<div id='new_feed_form'>
-					<%= f.label :name %><br />
-					<%= f.text_field :name -%><br />
-				  <%= f.label :text %><br />
-					<%= f.text_area :text -%>
-					<%= f.submit -%>
+					<p>
+						<b>Text:</b>
+						<%= @post.text %>
+					</p>
+					<h7>Comments</h7>
+					<% @post.comments.each do |comment| %>
+						<p>
+							<b>Name:</b> <%= comment.name %><br>
+							<b>Comment:</b> <%= comment.text %><br>
+							<%= time_ago_in_words comment.created_at %> ago
+						</p>
+					<% end %>
+
+					<%= form_for [@post, @post.comments.build] do |f| -%>
+						<div id='new_feed_form'>
+							<%= f.label :name %><br />
+							<% unless current_user %>
+								<%= f.text_field :name -%><br />
+							<% end %>
+							<% if current_user %>
+								<%= f.text_field :name, :value => current_user.username.capitalize %><br />
+							<% end %>
+							<%= f.label :text %><br />
+							<%= f.text_area :text -%>
+							<%= f.submit -%>
+						</div>
+					<% end %>
+
+
+					<% if @post.user = current_user %>
+						<%= link_to 'Edit', edit_post_path(@post) %> | 
+						<%= link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure you want to delete this post?" %> | 
+					<% end %>
+					<%= link_to 'Back', posts_path %>
 				</div>
-			<% end %>
+			<div class='right_side'>
 
+			</div>
+		<br clear="all" /></div>
 
-			<% if @post.user = current_user %>
-				<%= link_to 'Edit', edit_post_path(@post) %> | 
-				<%= link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure you want to delete this post?" %> | 
-			<% end %>
-			<%= link_to 'Back', posts_path %>
-		</div>
-	<div class='right_side'>
-
-	</div>
-<br clear="all" /></div>
-
-<%= render 'users/footer' %>
-</body>
+		<%= render 'users/footer' %>
+	</body>
 </html>

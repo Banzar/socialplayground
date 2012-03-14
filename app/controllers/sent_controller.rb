@@ -1,11 +1,13 @@
 class SentController < ApplicationController
-  	def index
-		@messages = current_user.sent_messages.paginate(:per_page => 10, :page => params[:page], :order => "created_at DESC")
-  	end
+	before_filter :login_required
 
-  	def show
-			@message = current_user.sent_messages.find(params[:id])
-  	end
+	def index
+		@messages = current_user.sent_messages.paginate(:per_page => 10, :page => params[:page], :order => "created_at DESC")
+	end
+
+	def show
+		@message = current_user.sent_messages.find(params[:id])
+	end
 
   def new
     @users = []

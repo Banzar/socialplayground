@@ -1,145 +1,131 @@
 <html>
-<head><title>
-<% if @user.first_name.present? && @user.last_name.present? %>
-<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>
-<% else %>
-<%= @user.username.capitalize %>
-<% end %>
-</title>
-<link rel="icon" 
-      type="image/ico" 
-      href="/assets/images/logo.ico">
-</head>
-<body>
-<div class="header">
-	<%= render 'topmenu' %>
-  <div class="header_interior"><img src="assets/images/logo.png" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  <h1 class="title">Our Children Play</h1></div>
-</div>
-<div class="content_body">
-  <div class="content_interior"><div class="left_column"><div class="navigation">
-	<div id="avatar">
-		<h1>
-		<% if @user.first_name.present? && @user.first_name.present? %>
-			<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>
-		</h1>
-		<% else %>
-				<%= @user.username.capitalize %>
-		</h1>
-		<% end %>
-		<%= image_tag @user.avatar.url(:small) %> 
-		<% if current_user %>
-			<% unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
-				<%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
-			<% end %>
-		<% end %>
-		<%= @online %>
-		<% if @user.state.present? && @user.county.present? %>
-			<h4>
-				Location: <%= @user.county %>, <%= @user.state %>
-			</h4>
-		<% elsif @user.county.nil? && @user.state.present? %>
-			<h4>
-				Location: <%= @user.state %>
-			</h4>
-		<% end %>
-		<%= link_to "Send Message", "/sent/new?to=#{@user.id}" %>
-	</div>
-	<br>
-<%= render 'menu' %> </div>
-
-<div class="navigationbtm"></div>
- <br />
- <img src="assets/images/family.png" alt="sample 2" />
- </div>
-		<div class="right_column">
-			<% if @user.about_us.present? %>
-				<h3>About My Family</h3>
-					<p><%= @user.about_us %></p>
-				<br />
-				<div class="hr"></div>
-			<% end %>
-			<% unless @user.kids.count == 0 %>
-				<div class='users_children'>
-					<h5><% if @user.kids.count == 1 %>Our Child<% elsif @user.kids.count >= 2 %>Our Children<% end %></h5>
-					<ul>
-						<% for kid in @children %>
-							<li>
-								<%= kid.first_name.capitalize %> <%= kid.last_name.capitalize %><br />
-								<% if kid.photo.file? %>
-									<%= image_tag kid.photo(:small) %>
-								<% else %>
-									<img src="/assets/images/childprofile.jpg">
-								<% end %>
-								<div class='container'>
-									<font color='black'>
-										<b>Age:</b> <%= time_ago_in_words kid.birthday %> old.
-										<p><b>Birthday:</b> <%= kid.birthday.strftime("%m-%d-%y") %></p>
-										<p><b>School:</b> <%= kid.school %></p>
-										<p><b>Grade:</b> <%= kid.grade %></p>
-										<p><b>Hobbies:</b> <%= kid.hobbies %></p>
-									</font>
-								</div>
-							</li>
-						<% end %>
-					</ul>
-				</div><div class='clear'></div>
-				<br /><br />
-				<div class="hr"></div>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="content_body">
+			<div class="content_interior"><div class="left_column"><div class="navigation">
+			<div id="avatar">
+				<h1>
+				<% if @user.first_name.present? && @user.first_name.present? %>
+					<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>
+				</h1>
+				<% else %>
+						<%= @user.username.capitalize %>
+				</h1>
 				<% end %>
-				<% unless @user.friends.empty? %>
-					<div class='friend_list_left'>
-						<h5><%= @user.username.capitalize %>'s friends</h5>
-						<% for user in @user.friends %>
-							<li>
-								<% if user.avatar.file? %>
-									<%= image_tag user.avatar.url(:thumb) %>
-								<% else %>
-									<img src="/assets/images/nopic2.gif">
-								<% end %>
-								<div class="location_container">
-									<div class="button">
-										<% if current_user %>
-											<% unless current_user.friends.include?(user) %>
-												<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
-											<% end %>
+				<%= image_tag @user.avatar.url(:small) %> 
+				<% if current_user %>
+					<% unless @user == current_user || current_user.requested_friends.include?(@user) || current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
+						<%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+					<% end %>
+				<% end %>
+				<% if @user.state.present? && @user.county.present? %>
+					<h4>
+						Location: <%= @user.county %>, <%= @user.state %>
+					</h4>
+				<% elsif @user.county.nil? && @user.state.present? %>
+					<h4>
+						Location: <%= @user.state %>
+					</h4>
+				<% end %>
+				<% if current_user %>
+					<%= link_to "Send Message", "/sent/new?to=#{@user.id}" %>
+				<% end %>
+			</div>
+			<br>
+		<%= render 'menu' %> </div>
+
+		<div class="navigationbtm"></div>
+		 <br />
+		 <img src="assets/images/family.png" alt="sample 2" />
+		 </div>
+				<div class="right_column">
+					<% if @user.about_us.present? %>
+						<h3>About My Family</h3>
+							<p><%= @user.about_us %></p>
+						<br />
+						<div class="hr"></div>
+					<% end %>
+					<% unless @user.kids.count == 0 %>
+						<div class='users_children'>
+							<h5><% if @user.kids.count == 1 %>Our Child<% elsif @user.kids.count >= 2 %>Our Children<% end %></h5>
+							<ul>
+								<% for kid in @children %>
+									<li>
+										<%= kid.first_name.capitalize %> <%= kid.last_name.capitalize %><br />
+										<% if kid.photo.file? %>
+											<%= image_tag kid.photo(:small) %>
+										<% else %>
+											<img src="/assets/images/childprofile.jpg">
 										<% end %>
-									</div>
-									<%= link_to user.username.capitalize, user.username %>
-									<% if user.county.present? && user.state.present? %>
-										(<%= user.county %>, <%= user.state %>)
-									<% elsif user.state.present? %>
-										(<%= user.state %>)
-									<% end %>
-			</div><div class="clear"></div>
-						</li>
-					<% end %>
-				</div>
-			<% end %>
-			<% unless @user.events.empty? %>
-				<div class="event_list_right">
-					<% if current_user.friends.include?(@user) && @user.friends.include?(current_user) || @user == current_user %>
-						<h5>My latest events!</h5>
-						<% for event in @user.events %>
-							<li>
-								<% if @user == current_user %>
-									<div class='button'>
-										<%= link_to "delete", event, :method => :delete %>
-									</div>
+										<div class='container'>
+											<font color='black'>
+												<b>Age:</b> <%= time_ago_in_words kid.birthday %> old.
+												<p><b>Birthday:</b> <%= kid.birthday.strftime("%m-%d-%y") %></p>
+												<p><b>School:</b> <%= kid.school %></p>
+												<p><b>Grade:</b> <%= kid.grade %></p>
+												<p><b>Hobbies:</b> <%= kid.hobbies %></p>
+											</font>
+										</div>
+									</li>
 								<% end %>
-								<%= link_to event.event_name, "/event/#{event.id}" %><br /><% if event.date.present? %><font color='000000'> <%= event.date.strftime('%m-%d-%y') %></font><% end %>
-							</li>
+							</ul>
+						</div><div class='clear'></div>
+						<br /><br />
+						<div class="hr"></div>
 						<% end %>
+						<% unless @user.friends.empty? %>
+							<div class='friend_list_left'>
+								<h5><%= @user.username.capitalize %>'s friends</h5>
+								<% for user in @user.friends %>
+									<li>
+										<% if user.avatar.file? %>
+											<%= image_tag user.avatar.url(:thumb) %>
+										<% else %>
+											<img src="/assets/images/nopic2.gif">
+										<% end %>
+										<div class="location_container">
+											<div class="button">
+												<% if current_user %>
+													<% unless current_user.friends.include?(user) %>
+														<%= link_to "Add", friendships_path(:friend_id => user), :method => :post %>
+													<% end %>
+												<% end %>
+											</div>
+											<%= link_to user.username.capitalize, user.username %>
+											<% if user.county.present? && user.state.present? %>
+												(<%= user.county %>, <%= user.state %>)
+											<% elsif user.state.present? %>
+												(<%= user.state %>)
+											<% end %>
+					</div><div class="clear"></div>
+								</li>
+							<% end %>
+						</div>
+					<% end %>
+					<% unless @user.events.empty? %>
+						<div class="event_list_right">
+							<% if current_user.friends.include?(@user) && @user.friends.include?(current_user) || @user == current_user %>
+								<h5>My latest events!</h5>
+								<% for event in @user.events %>
+									<li>
+										<% if @user == current_user %>
+											<div class='button'>
+												<%= link_to "delete", event, :method => :delete %>
+											</div>
+										<% end %>
+										<%= link_to event.event_name, "/event/#{event.id}" %><br /><% if event.date.present? %><font color='000000'> <%= event.date.strftime('%m-%d-%y') %></font><% end %>
+									</li>
+								<% end %>
+							<% end %>
+						</div>
 					<% end %>
 				</div>
-			<% end %>
-  	</div>
-	<div class='right_side'>
+			<div class='right_side'>
 
-	</div>
-<br clear="all" /></div>
+			</div>
+		<br clear="all" /></div>
 
-<%= render 'footer' %>
-</body>
+		<%= render 'footer' %>
+	</body>
 </html>
 
