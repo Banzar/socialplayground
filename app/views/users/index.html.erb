@@ -46,7 +46,7 @@
 				<% end %>
 
 					<% unless current_user %>
-						<p>These are the users of Social playground. Have a look, but to view any of the profiles you will have to be logged in.</p>
+						<p>These are the users of Social Parents. Have a look, but to view any of the profiles you will have to be logged in.</p>
 						<% @users.each do |user| %>
 							<li <% if @users.first == user %>class="first"<% end %>>
 										<% if user.avatar.file? %>
