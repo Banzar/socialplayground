@@ -31,7 +31,7 @@ Abby::Application.routes.draw do
 
   root :to => "users#home"
 
-	resources :posts
+	resources :posts do resources :comments end
 	resources :activities
 	resources :kids
 	resources :sent

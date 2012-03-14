@@ -31,10 +31,13 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_presence_of :email, :username, :state
 	validates_uniqueness_of :email, :username
+	validates_format_of :username, :with => /^[A-Za-z\d_]+$/
 	validates_format_of :email, :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
 
+
+	has_many :kids 
 	has_many :posts
-	has_many :kids
+	has_many :comments
 	has_many :events, :dependent => :destroy
 	has_many :feeds, :dependent => :destroy
 	has_many :items, :dependent => :destroy

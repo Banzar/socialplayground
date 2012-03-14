@@ -38,6 +38,9 @@
 							<% end %>
 						<div class="user_message_container">
 							<%= link_to user.username.capitalize, user.username %>
+							<% if @online %>
+								<font color='red'>Online</font><br />
+							<% end %>
 							<% if user.county.present? && user.state.present? %>
 								<b><%= h user.county %>, <%= user.state %></b>
 							<% end %>

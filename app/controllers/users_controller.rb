@@ -95,14 +95,9 @@ class UsersController < ApplicationController
   end
 
 	def show
-		if current_user
-			@user = User.find_by_username(params[:username])
-			@friends = @user.friends.all
-			@children = @user.kids.all
-			@online = User.find(session[@user.id]) if session[@user.id]
-		else
-			redirect_to sign_up_url
-		end
+		@user = User.find_by_username(params[:username])
+		@friends = @user.friends.all
+		@children = @user.kids.all
 	end
 
   def update

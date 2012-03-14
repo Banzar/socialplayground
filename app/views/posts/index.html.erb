@@ -31,6 +31,7 @@
 				<tr>
 					<th>Title</th>
 					<th>Text</th>
+					<th>Posted</th>
 					<th></th>
 				</tr>
 
@@ -38,10 +39,11 @@
 				<tr>
 					<td><%= link_to post.title, post %></td>
 					<td><%= truncate post.text %></td>
+					<td><%= time_ago_in_words post.created_at %></td>
 					<td><%= link_to 'Show', post %>
 					<% if post.user = current_user %>
 						| <%= link_to 'Edit', edit_post_path(post) %> |
-						<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+						<%= link_to 'Delete', post, :confirm => 'Are you sure?', :method => :delete %></td>
 					<% else %>
 						</td>
 					<% end %>

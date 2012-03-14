@@ -33,9 +33,7 @@
 				<%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
 			<% end %>
 		<% end %>
-		<% if @online %>
-			<font color='red'>Online</font><br />
-		<% end %>
+		<%= @online %>
 		<% if @user.state.present? && @user.county.present? %>
 			<h4>
 				Location: <%= @user.county %>, <%= @user.state %>
