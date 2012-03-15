@@ -2,9 +2,10 @@
 	<ul class="markermenu">
 		<li class="markermenu"><a href="/profile" >Home</a></li>
 		<li class="markermenu"><a href="/<%= current_user.username %>" >Show Profile</a></li>
-		<li class="markermenu"><a href ="/friends">Friends<% unless current_user.pending_friends.empty? %>(<%= current_user.pending_friends.count %>)<% end %></a></li>
+		<li class="markermenu"><a href="/users" >Meet People</a></li>
+ current_user.pending_friends.empty? %>(<%= current_user.pending_friends.count %>)<% end %></a></li>
 		<li class="markermenu"><a href="/listings" >Listings</a></li>
-		<li class="markermenu"><a href="/users" >Show Users</a></li>
+		<li class="markermenu"><a href ="/friends">Friends<% unless
 		<li class="markermenu"><a href="/family_fun">Family Fun</a></li>
 		<li class="markermenu"><a href="/posts" >Parenting Blog</a></li>
 		<li class="markermenu"><a href ="/sent/new?to=1">Contact Us</a></li>
