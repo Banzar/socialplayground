@@ -1,6 +1,21 @@
 <html>
-	<body>
+	<head>
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-30027871-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
 		<%= render 'layouts/header' %>
+	</head>
+	<body>
 		<div class="content_body">
 			<div class="content_interior"><div class="left_column"><div class="navigation">
 				<div id="avatar">
@@ -13,12 +28,12 @@
 		 <br />
 		</div>
 			<div class="right_column">
+				<%= pluralize(@users.count, "Member") %>
 				<ul id="user_list">
 					<div class='flash'>
 						<%= flash_helper %>
 					</div>
 					<% if current_user %>
-						<%= pluralize(@users.count, "Member") %>
 						<% @users.each do |user| %>
 								<li <% if @users.first == user %> class="first"<% end %>>
 									<% if user.avatar.file? %>

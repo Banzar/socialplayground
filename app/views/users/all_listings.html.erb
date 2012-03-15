@@ -1,44 +1,59 @@
 <html>
-	<body>
+	<head>
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-30027871-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
 		<%= render 'layouts/header' %>
-		<div class="content_body">
-			<div class="content_interior"><div class="left_column"><div class="navigation">
-				<div id="avatar">
-					 <img src="assets/images/family.png" alt="sample 2" />
+	</head>
+		<body>
+			<div class="content_body">
+				<div class="content_interior"><div class="left_column"><div class="navigation">
+					<div id="avatar">
+						 <img src="assets/images/family.png" alt="sample 2" />
+					</div>
+				<br>
+			<%= render 'menu' %> 
 				</div>
-			<br>
-		<%= render 'menu' %> 
+			<div class="navigationbtm"></div>
+			 <br />
 			</div>
-		<div class="navigationbtm"></div>
-		 <br />
-		</div>
-			<div class="right_column">
-				<h5>Listed Items</h5>
-				<p>These listings are listed by users. It is intended to be a way to get rid of the old clothing, or old toys that aren't played with anymore. Many other things can be listed though, you may find much more then just clothes and toys. Just remember these are driven by our users. so more will come in time, it just has to be posted for you to find it.</p>
-				<div class="hr"></div>
-				<div class='listings'>
-				<% if current_user %>		
-					<% @items.each do |item| %>
-						<li>
-							<% if item.user.state == current_user.state  %>
-								<%= link_to item.item, "/item/#{item.id}" %>
-							<% end %>
-						</li>
+				<div class="right_column">
+					<h5>Listed Items</h5>
+					<p>These listings are listed by users. It is intended to be a way to get rid of the old clothing, or old toys that aren't played with anymore. Many other things can be listed though, you may find much more then just clothes and toys. Just remember these are driven by our users. so more will come in time, it just has to be posted for you to find it.</p>
+					<div class="hr"></div>
+					<div class='listings'>
+					<% if current_user %>		
+						<% @items.each do |item| %>
+							<li>
+								<% if item.user.state == current_user.state  %>
+									<%= link_to item.item, "/item/#{item.id}" %>
+								<% end %>
+							</li>
+						<% end %>
+					<% else %>
+						<% @items.each do |item| %>
+							<li>
+									<%= item.state %> <%= link_to item.item, "/item/#{item.id}" %>
+							</li>
+						<% end %>
 					<% end %>
-				<% else %>
-					<% @items.each do |item| %>
-						<li>
-								<%= item.state %> <%= link_to item.item, "/item/#{item.id}" %>
-						</li>
-					<% end %>
-				<% end %>
-				</div><div id="clear"></div>
-			</div>
-			<div class='right_side'>
+					</div><div id="clear"></div>
+				</div>
+				<div class='right_side'>
 
-			</div>
-		<br clear="all" /></div>
+				</div>
+			<br clear="all" /></div>
 
-		<%= render 'footer' %>
-	</body>
+			<%= render 'footer' %>
+		</body>
 </html>

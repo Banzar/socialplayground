@@ -1,92 +1,107 @@
 <html>
-	<body>
+	<head>
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-30027871-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
 		<%= render 'layouts/header' %>
-		<div class="content_body">
-			<div class="content_interior"><div class="left_column"><div class="navigation">
-			<div id="avatar">
-				<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
-					<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
-				<% else %>
-					<%= current_user.username.capitalize %></h1>
-				<% end %>
-				<%= image_tag current_user.avatar.url(:small) %>
-			</div>
-			<br>
-		<%= render 'menu' %>
-		 </div>
-
-		<div class="navigationbtm"></div>
-		 <br />
-		 <img src="/assets/images/family.png" alt="sample 2" />
-		 </div>
-				<div class="right_column">
-				<h3 align="center">Profile settings</h3>
-				<div class='flash'>
-					<%= flash_helper %>
+	</head>
+	<body>
+			<div class="content_body">
+				<div class="content_interior"><div class="left_column"><div class="navigation">
+				<div id="avatar">
+					<h1><% if current_user.first_name.present? && current_user.last_name.present? %>
+						<%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h1>
+					<% else %>
+						<%= current_user.username.capitalize %></h1>
+					<% end %>
+					<%= image_tag current_user.avatar.url(:small) %>
 				</div>
-				 		<%= form_for current_user, :html => { :multipart => true } do |f| %>
-							<div class="default_left">
-								<p>
-									<%= f.label :first_name %><br>
-									<%= f.text_field :first_name %>
-								</p>
-								<p>
-									<%= f.label :last_name %><br>
-									<%= f.text_field :last_name %>
-								</p>
-								<p>
-									Profile photo <br />
-									<%= f.file_field :avatar %>
-								</p>
-								<p>
-									<%= f.label :state %><br>
-									<%= f.select :state, us_states %>
-								</p>
-									<% if current_user.state != nil %>
-										<p>
-											<%= f.label :county %><br>
-											<%= f.select :county, state_county %>
-										</p>
-									<% end %>
-								<p>	
-									<%= f.label :about_us %><br>
-						 			<%= f.text_area :about_us %>
-								</p>
+				<br>
+			<%= render 'menu' %>
+			 </div>
 
-								<div class="actions">
-									<%= f.submit %>
+			<div class="navigationbtm"></div>
+			 <br />
+			 <img src="/assets/images/family.png" alt="sample 2" />
+			 </div>
+					<div class="right_column">
+					<h3 align="center">Profile settings</h3>
+					<div class='flash'>
+						<%= flash_helper %>
+					</div>
+					 		<%= form_for current_user, :html => { :multipart => true } do |f| %>
+								<div class="default_left">
+									<p>
+										<%= f.label :first_name %><br>
+										<%= f.text_field :first_name %>
+									</p>
+									<p>
+										<%= f.label :last_name %><br>
+										<%= f.text_field :last_name %>
+									</p>
+									<p>
+										Profile photo <br />
+										<%= f.file_field :avatar %>
+									</p>
+									<p>
+										<%= f.label :state %><br>
+										<%= f.select :state, us_states %>
+									</p>
+										<% if current_user.state != nil %>
+											<p>
+												<%= f.label :county %><br>
+												<%= f.select :county, state_county %>
+											</p>
+										<% end %>
+									<p>	
+										<%= f.label :about_us %><br>
+							 			<%= f.text_area :about_us %>
+									</p>
+
+									<div class="actions">
+										<%= f.submit %>
+									</div>
 								</div>
-							</div>
-						<% end %>
-							<div class='default_right'>
-								<%= form_for current_user do |f| %>
-								<p>
-									<%= f.label :email %><br>
-									<%= f.text_field :email %>
-								</p>
-								<p>
-									<%= f.label :password %><br>
-									<%= f.password_field :password %>
-								</p>
-								<p>
-									<%= f.label :password_confirmation %><br>
-									<%= f.password_field :password_confirmation %>
-								</p>
-								<div class="actions">
-									<%= f.submit "Update security"%>
-								</div>
-								<p>
-									If you choose to, you can delete your profile for any reason and you will always be welcome back if ever you want to come back. But keep in mind, you will not be able to get back any of the information you had on here after it is delete. Best wishes, and thank you for joining us.
-								</p>
-								<p><%= link_to '[Delete Profile]', @user, :method => :delete, :confirm => 'Are you sure you want to delete your profile? The whole profile will be deleted and you will not be able to get back any information.' %></p>
 							<% end %>
-							</div>
-			</div>
-			<div class='right_side'>
+								<div class='default_right'>
+									<%= form_for current_user do |f| %>
+									<p>
+										<%= f.label :email %><br>
+										<%= f.text_field :email %>
+									</p>
+									<p>
+										<%= f.label :password %><br>
+										<%= f.password_field :password %>
+									</p>
+									<p>
+										<%= f.label :password_confirmation %><br>
+										<%= f.password_field :password_confirmation %>
+									</p>
+									<div class="actions">
+										<%= f.submit "Update security"%>
+									</div>
+									<p>
+										If you choose to, you can delete your profile for any reason and you will always be welcome back if ever you want to come back. But keep in mind, you will not be able to get back any of the information you had on here after it is delete. Best wishes, and thank you for joining us.
+									</p>
+									<p><%= link_to '[Delete Profile]', @user, :method => :delete, :confirm => 'Are you sure you want to delete your profile? The whole profile will be deleted and you will not be able to get back any information.' %></p>
+								<% end %>
+								</div>
+				</div>
+				<div class='right_side'>
 
-			</div>
-		<br clear="all" /></div>
+				</div>
+			<br clear="all" /></div>
 
-		<%= render 'footer' %>
-	</body>
+			<%= render 'footer' %>
+		</body>
 </html>
