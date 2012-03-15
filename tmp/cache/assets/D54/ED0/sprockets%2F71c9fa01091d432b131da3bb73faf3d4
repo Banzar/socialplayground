@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"digest"%5a5a5c42268d02cfb5e6210a584cc4e0"_version"%b35c05d00e95c9e5935bb395a38a66d4"source"-/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	"source"8-/* CSS Document */
 
 body {
 	margin: 0;
@@ -6,6 +6,11 @@ body {
 	font-family: "Lucida Grande", sans-serif;
 	font-size: small;
 	color: #38230E;
+}
+
+.topper {
+	height: 12px;
+	background-color: #F6F3E3;
 }
 
 .header{
@@ -426,8 +431,8 @@ h7 {
 
 #menu {
 	float: right;
-	width: 550px;
-	height: 100px;
+	width: 100%;
+	height: 10px;
 	margin: 0px auto;
 	padding: 0px;
 }
@@ -435,7 +440,7 @@ h7 {
 #menu ul {
 	float: right;
 	margin: 0;
-	padding: 50px 20px 0px 0px;
+	padding: 2px 20px 0px 0px;
 	list-style: none;
 	line-height: normal;
 }
@@ -754,4 +759,5 @@ li{
 	float: center;
 }
 
-"lengthi-:@created_atf1331587072.2611899 ·V:@expires_in0:@compressedF
+"_version"%f70df45a372a119066b91f77f8c4b638"digest"%0ef4e2d52ac4486b59edfcc9551e0508"lengthi8-:@created_atf1331824070.281918 
+ò:@expires_in0:@compressedF

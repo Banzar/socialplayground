@@ -13,8 +13,11 @@
 			})();
 
 		</script>
-		<%= render 'layouts/header' %>
 	</head>
+	<div class='topper'>
+		<%= render 'topmenu' %>
+	</div>
+	<%= render 'layouts/header' %>
 	<body>
 		<div class="content_body">
 			<div class="content_interior"><div class="left_column"><div class="navigation">
@@ -63,10 +66,12 @@
 					<%= link_to 'New Post', new_post_path %>
 				</div>
 			<div class='right_side'>
-
+				<%= render 'ads/google_right' %>
 			</div>
 		<br clear="all" /></div>
-
+		<div class='footer' align='center'>
+			<%= render 'ads/google' %>
+		</div>
 		<%= render 'users/footer' %>
 	</body>
 </html>
