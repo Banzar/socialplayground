@@ -4,7 +4,7 @@
 	<% @user.requested_friends.each do |user| %>
 		<li>
 			<% if user.avatar.file? %>
-				<%= image_tag user.avatar.url(:thumb) %>
+				<%= link_to image_tag(user.avatar.url(:thumb).to_s) %>
 			<% else %>
 				<img src="assets/images/nopic2.gif">
 			<% end %>
