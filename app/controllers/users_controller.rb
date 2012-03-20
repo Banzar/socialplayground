@@ -79,7 +79,7 @@ class UsersController < ApplicationController
 
 	def index
 		if params[:search] != ""
-			@users = User.find(:all, :conditions => ['first_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['last_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['username LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['full_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['county LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['state LIKE ?', "%#{params[:search]}%"]) + Kid.find(:all, :conditions => ['first_name LIKE ?', "%#{params[:search]}%"]) + Kid.find(:all, :conditions => ['last_name LIKE ?', "%#{params[:search]}%"]) + Kid.find(:all, :conditions => ['full_name LIKE ?', "%#{params[:search]}%"]) 
+			@users = User.find(:all, :conditions => ['first_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['last_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['username LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['full_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['county LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['state LIKE ?', "%#{params[:search]}%"]) 
 		else
 			@users = User.paginate(:page => params[:page], :per_page => 10, :order => ["state"])
 		end
