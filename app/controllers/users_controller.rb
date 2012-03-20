@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   end
 
 	def index
-		if params[:search] != ""
+		if params[:search]
 			@users = User.find(:all, :conditions => ['first_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['last_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['username LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['full_name LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['county LIKE ?', "%#{params[:search]}%"]) + User.find(:all, :conditions => ['state LIKE ?', "%#{params[:search]}%"]) 
 		else
 			@users = User.paginate(:page => params[:page], :per_page => 10, :order => ["state"])
