@@ -92,7 +92,10 @@
 						<% end %>
 							</li>
 					<% end %>
-				<% unless params[:search] || params[:search] = "" %>
+				<% unless params[:search] %>
+					<%= will_paginate @users %>
+				<% end %>
+				<% if params[:search] = "" %>
 					<%= will_paginate @users %>
 				<% end %>
 		</div>
