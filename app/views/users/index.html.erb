@@ -32,7 +32,7 @@
 		</div>
 			<div class="right_column">
 				<p>You can search for other members by typing their first name, last name, user name, full name, or state.</p>
-				<%= pluralize(@users.count, "Member") %>
+				<%= pluralize(@users.count, "Member") %> out of <%= pluralize(@all_users.count, "member") %>
 				<ul id="user_list">
 					<div class='flash'>
 						<%= flash_helper %>
@@ -92,7 +92,7 @@
 						<% end %>
 							</li>
 					<% end %>
-				<% unless params[:search] %>
+				<% unless params[:search] || params[:search] = "" %>
 					<%= will_paginate @users %>
 				<% end %>
 		</div>
