@@ -95,9 +95,6 @@
 				<% unless params[:search] %>
 					<%= will_paginate @users %>
 				<% end %>
-				<% if params[:search] = "" %>
-					<%= will_paginate @users %>
-				<% end %>
 		</div>
 			<div class='right_side'>
 				<%= render 'ads/google_right' %>
