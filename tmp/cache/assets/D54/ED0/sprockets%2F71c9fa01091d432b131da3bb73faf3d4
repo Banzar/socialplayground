@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"source"8-/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	"digest"%0ef4e2d52ac4486b59edfcc9551e0508"lengthi8-"source"8-/* CSS Document */
 
 body {
 	margin: 0;
@@ -759,5 +759,4 @@ li{
 	float: center;
 }
 
-"_version"%f70df45a372a119066b91f77f8c4b638"digest"%0ef4e2d52ac4486b59edfcc9551e0508"lengthi8-:@created_atf1331824070.281918 
-т:@expires_in0:@compressedF
+"_version"%f83d804146affc903e9d46c04b1f1cf4:@created_atf1332438125.170774 нц:@expires_in0:@compressedF
