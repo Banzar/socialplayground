@@ -25,7 +25,9 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
-		@user.destroy
+		if redirect_to log_out_url
+			@user.destroy
+		end
 	end
 
 	def events
