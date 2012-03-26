@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 	  if @user.save
 			session[:user_id] = @user.id
-			#UserMailer.registration_confirmation(@user).deliver
+			UserMailer.registration_confirmation(@user).deliver
 			redirect_to get_info_url
 	  else
 	    render "new"
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
-		redirect_to log_out_url
+		redirect_to log_out_path
 		@user.destroy
 	end
 

@@ -9,3 +9,69 @@
 		</ul>
 	</div>
 <% end %>
+
+<style type="text/css">
+#cssm1 *  { padding:0; margin: 0; }
+
+#cssm1 {position: absolute;  z-index: 99;  top:0px; left: 35px; position: fixed; left:10; top:20; float: left;  margin:0; line-height: 15px;}
+
+#cssm1 a { display: block; border-bottom: 2px solid #fff; background: #abc; text-decoration: none; padding: 3px 10px; }
+#cssm1 a:hover { background: #789; }
+
+
+#cssm1 ul li, #cssm1 ul li ul li  { width: 120px; list-style: none;}
+
+#cssm1 ul, #cssm1:hover ul li ul, #cssm1:hover ul li:hover ul li ul{ 
+	display:none;
+	list-style-type:none; 
+	width: 120px;
+	}
+
+#cssm1:hover ul, #cssm1:hover ul li:hover ul, #cssm1:hover ul li:hover ul li:hover ul { 
+	display:block; 
+	}
+
+#cssm1:hover ul li:hover ul, #cssm1:hover ul li:hover ul li:hover ul { 
+	position: absolute;
+	left: 120px; top: 10;
+	}
+
+#cssm1 ul li ul, #cssm1 ul li ul li ul { clear: left; margin-top: -30px; }
+
+#cssm3 { background: transparent; padding: 3px; text-align: left; text-transform: uppercase;} 
+#cssm1:hover #cssm3 { display:none; } 
+
+</style>
+
+</head><body>
+
+<div id="cssm1">
+	<ul>
+		<li><a href="/mymail">Messages &nbsp; &nbsp; &#187;</a>
+			<ul>
+				<li><a href="/mymail">Inbox</a></li>
+				<li><a href="/sent_mail">Sent</a></li>
+
+				<li><a href="/send">Compose</a></li>
+			</ul>
+		</li>
+		<li><a href="events">My Events &nbsp; &nbsp; &#187;</a>
+			<ul>
+				<li><a href="#">Create Event</a></li>
+				<li><a href="#">View My Events</a></li>
+			</ul>
+		</li>
+		<li><a href="my_kids">My Children</a></li>
+		<li><a href="#">Europe &nbsp; &nbsp; &#187;</a>
+			<ul>
+				<li><a href="#">France</a></li>
+				<li><a href="#">Germany</a></li>
+			</ul>
+		</li>
+		
+	</ul>
+	
+	<div id="cssm3">| my messages | my kids | my events |</div>
+</div>
+</body></html>
+

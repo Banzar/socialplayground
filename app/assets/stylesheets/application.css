@@ -433,7 +433,30 @@ h7 {
 	width: 100%;
 	height: 10px;
 	margin: 0px auto;
-	padding: 0px;
+	display: block;
+	text-decoration: none;
+}
+
+#menu a:hover {
+	background: #abc;
+}
+
+#menu ul li #menu ul li ul li  { 
+	width: 120px;
+}
+
+#menu:hover ul #menu:hover ul li:hover ul, #menu:hover ul li:hover ul li:hover ul { 
+	display:block; 
+	}
+
+#menu:hover ul li:hover ul #menu:hover ul li:hover ul li:hover ul { 
+	position: absolute;
+	left: 120px; top: 10;
+}
+
+#menu ul li ul #menu ul li ul li ul { 
+	clear: left;
+	margin-top: -30px;
 }
 
 #menu ul {
@@ -462,7 +485,7 @@ h7 {
 	font-size: 14px;
 	font-weight: normal;
 	color: #000000;
-	border: none;
+	border: bottom;
 }
 
 #menu a:hover, #menu .current_page_item a {
