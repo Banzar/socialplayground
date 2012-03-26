@@ -16,9 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-		params[:zip] = { :zip_code => "1" }
 		user = current_user
-		user.update_attributes(params[:zip])
     session[:user_id] = nil
     redirect_to root_url
   end
