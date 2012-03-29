@@ -6,7 +6,7 @@ module UsersHelper
 		information = File.new('config/useless.yml', 'r')
 		useless = YAML.load(information.read)
 
-		inform = rand(322)
+		inform = rand(321)
 		"#{useless[inform]}"
 	end
 
