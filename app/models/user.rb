@@ -51,15 +51,15 @@ class User < ActiveRecord::Base
 	has_many :viewed_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id", :conditions => "viewed = 'true'"
 
 	def some_feeds
-		Feed.find(:all, :conditions => ["user_id in (?)", current_user.friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
+		Feed.find(:all, :conditions => ["user_id in (?)", Friendships.map(&:id).push(self.id)], :order => "created_at desc", :limit => 8)
 	end
 
 	def all_feeds
-		Feed.find(:all, :conditions => ["user_id in (?)", current_user.friendships.map(&:id).push(self.id)], :order => "created_at desc")
+		Feed.find(:all, :conditions => ["user_id in (?)", Friendships.map(&:id).push(self.id)], :order => "created_at desc")
 	end
 
 	def friend_events
-		Event.find(:all, :conditions => ["user_id in (?)", current_user.friendships.map(&:id)], :order => "created_at desc")
+		Event.find(:all, :conditions => ["user_id in (?)", Friendships.map(&:id)], :order => "created_at desc")
 	end
 
   def self.authenticate(login, password)
