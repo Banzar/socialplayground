@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"source"Ø./* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	"digest"%f925b9d45a269d98537be124c4f390c7"lengthi™-"_version"%2a2d661d8747398c6e09ebfd34814ec4"source"™-/* CSS Document */
 
 body {
 	margin: 0;
@@ -9,8 +9,10 @@ body {
 }
 
 .topper {
-	height: 12px;
+	height: 18px;
 	background-color: #F6F3E3;
+	position: fixed;
+	width: 100%;
 }
 
 .header{
@@ -430,7 +432,7 @@ h7 {
 }
 
 #menu {
-	float: right;
+	float: left;
 	width: 100%;
 	height: 10px;
 	margin: 0px auto;
@@ -442,26 +444,9 @@ h7 {
 	background: #abc;
 }
 
-#menu ul li #menu ul li ul li  { 
-	width: 120px;
-}
-
-#menu:hover ul #menu:hover ul li:hover ul, #menu:hover ul li:hover ul li:hover ul { 
-	display:block; 
-	}
-
-#menu:hover ul li:hover ul #menu:hover ul li:hover ul li:hover ul { 
-	position: absolute;
-	left: 120px; top: 10;
-}
-
-#menu ul li ul #menu ul li ul li ul { 
-	clear: left;
-	margin-top: -30px;
-}
 
 #menu ul {
-	float: right;
+	float: left;
 	margin: 0;
 	padding: 2px 20px 0px 0px;
 	list-style: none;
@@ -782,4 +767,4 @@ li{
 	float: center;
 }
 
-"_version"%12cdcdc9da57e626c4a2949148ceb879"digest"%257ee980786bfe08dcebea566784d4d9"lengthiØ.:@created_atf1332466869.5312951  ½:@expires_in0:@compressedF
+:@created_atf1333056435.068357 _ö:@expires_in0:@compressedF
