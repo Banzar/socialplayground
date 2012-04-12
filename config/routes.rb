@@ -19,7 +19,6 @@ Abby::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "feeds" => "users#feeds", :as => "feeds"
-  get "profile" => "users#home", :as => "profile"
 	get "friends" => "users#friends", :as => "friends"
 	get "/:username", :controller => "users", :action => "show"
 	get "/:username/friends", :controller => "users", :action => "usersfriends"
