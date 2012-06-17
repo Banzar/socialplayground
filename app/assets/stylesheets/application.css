@@ -349,6 +349,10 @@ a:hover {10px
 	text-decoration: underline;
 	}
 
+a img { 
+  border:none; 
+	} 
+
 
 h2 {
 	margin: 0;

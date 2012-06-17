@@ -1,5 +1,8 @@
 <html>
 	<head>
+		<meta name="keywords" content="Meet other parents, find people, parents, my kids friends" />
+		<meta name="description" content="Meet other people here." />
+		<title>Meet our community of Parents</title>
 		<script type="text/javascript">
 
 			var _gaq = _gaq || [];
@@ -22,7 +25,7 @@
 		<div class="content_body">
 			<div class="content_interior"><div class="left_column"><div class="navigation">
 				<div id="avatar">
-					 <img src="assets/images/family.png" alt="sample 2" />
+					 <img src="assets/family.png" alt="sample 2" />
 				</div>
 			<br>
 		<%= render 'menu' %> 
@@ -49,7 +52,7 @@
 									<% if user.avatar.file? %>
 										<%= image_tag user.avatar.url(:thumb) %>
 									<% else %>
-										<img src="assets/images/nopic2.gif">
+										<img src="assets/nopic2.gif">
 									<% end %>
 								<div class="user_message_container">
 									<%= link_to user.username.capitalize, user.username %>
@@ -77,7 +80,7 @@
 										<% if user.avatar.file? %>
 											<%= image_tag user.avatar.url(:thumb) %>
 										<% else %>
-											<img src="/assets/images/nopic2.gif">
+											<img src="/assets/nopic2.gif">
 										<% end %>
 										<div class="user_message_container">
 											<%= link_to user.username.capitalize, user.username %>

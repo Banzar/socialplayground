@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<title><%= @event.event_name %></title>
 		<script type="text/javascript">
 
 			var _gaq = _gaq || [];
@@ -36,7 +37,7 @@
 
 		<div class="navigationbtm"></div>
 		 <br />
-		 <img src="/assets/images/family.png" alt="sample 2" />
+		 <img src="/assets/family.png" alt="sample 2" />
 		 </div>
 				<div class="right_column">
 					<% if @event.user == current_user %>

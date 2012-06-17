@@ -1,5 +1,8 @@
 <html>
 	<head>
+		<meta name="keywords" content="family fun, family activities, fun for families, family friendly fun, things to do with family" />
+		<meta name="description" content="A place where you can review some activities that people do with their families for fun, and also post some that you do with yours for others to be able to try out." />
+		<title>Add a fun family activity for others to see</title>
 		<script type="text/javascript">
 
 			var _gaq = _gaq || [];
@@ -22,7 +25,7 @@
 		<div class="content_body">
 			<div class="content_interior"><div class="left_column"><div class="navigation">
 			<div id="avatar">
-				<img src='/assets/images/family.png'>
+				<img src='/assets/family.png'>
 			</div>
 			<br>
 		<%= render 'users/menu' %>
@@ -36,6 +39,7 @@
 						<%= flash_helper %>
 					</div>
 					<h7>Add a family activity</h7>
+					<p>This is where you can add some activities that you have done with your family. These activities may be something new that another family has not tried. This will help families learn new ways to have fun spending time together.</p>
 					<%= form_for Activity.new do |f| %>
 						<p>
 							<%= f.label :title %><br />

@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	"digest"%f925b9d45a269d98537be124c4f390c7"lengthi™-"_version"%2a2d661d8747398c6e09ebfd34814ec4"source"™-/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	I"length:EFi·-I"digest;F"%4b7d2d5b77165a0c9ac0352955e33c77I"source;FI"·-/* CSS Document */
 
 body {
 	margin: 0;
@@ -349,6 +349,10 @@ a:link, a:visited {
 a:hover {10px
 	text-decoration: underline;
 	}
+
+a img { 
+  border:none; 
+	} 
 
 
 h2 {
@@ -767,4 +771,4 @@ li{
 	float: center;
 }
 
-:@created_atf1333056435.068357 _ö:@expires_in0:@compressedF
+;FI"_version;F"%565e00d71b3dd3c5b63ce79a0028376a:@created_atf1339914767.224734:@expires_in0:@compressedF

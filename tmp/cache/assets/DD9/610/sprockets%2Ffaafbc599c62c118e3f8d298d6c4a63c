@@ -1,0 +1,4 @@
+o: ActiveSupport::Cache::Entry	:@value{I"
+class:EFI"StaticAsset;FI"id;F"%034062039e2d0f9d2b8ab95ba22c91b8I"logical_path;FI"family.png;TI"pathname;FI"'$root/app/assets/images/family.png;FI"content_type;FI"image/png;FI"
+mtime;FI"2012-06-17T01:38:48-04:00;FI"length;FI"
+30124;FI"digest;F"%9081bf0634fe0ebea0b822f78a31571dI"_version;F"%46dde6621c301f4928e3b34efee9e3b5:@created_atf1339916989.289767:@expires_in0:@compressedF
