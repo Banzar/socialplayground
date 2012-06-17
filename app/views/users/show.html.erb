@@ -55,7 +55,7 @@
 
 		<div class="navigationbtm"></div>
 		 <br />
-		 <img src="assets/images/family.png" alt="sample 2" />
+		 <img src="assets/family.png" alt="sample 2" />
 		 </div>
 				<div class="right_column">
 					<% if @user.about_us.present? %>
@@ -74,7 +74,7 @@
 										<% if kid.photo.file? %>
 											<%= image_tag kid.photo(:small) %>
 										<% else %>
-											<img src="/assets/images/childprofile.jpg">
+											<img src="/assets/childprofile.jpg">
 										<% end %>
 										<div class='container'>
 											<font color='black'>
@@ -100,7 +100,7 @@
 										<% if user.avatar.file? %>
 											<%= image_tag user.avatar.url(:thumb) %>
 										<% else %>
-											<img src="/assets/images/nopic2.gif">
+											<img src="/assets/nopic2.gif">
 										<% end %>
 										<div class="location_container">
 											<div class="button">

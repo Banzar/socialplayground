@@ -4,7 +4,7 @@ class Message < ActiveRecord::Base
 	has_many :recipients, :through => :message_copies
 	before_create :prepare_copies
 
-	validates_presence_of :to, :body, :subject :on => :create
+	validates_presence_of :to, :body, :subject
 	attr_accessor :to #Array of people to send to
 	attr_accessible :subject, :body, :to
 
