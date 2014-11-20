@@ -1,0 +1,7 @@
+ENV['S3_BUCKET'] = 'socialplayground-avatar'
+ENV['S3_BUCKET2'] = 'list-item-photo'
+ENV['S3_BUCKET3'] = 'socialplayground-children'
+ENV['S3_KEY'] = 'AKIAIMFJ73RSZNWDY26A'
+ENV['S3_SECRET'] = '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'
+ENV['STACK'] = 'bamboo-mri-1.9.2'
+ENV['URL'] = 'socialplayground.heroku.com'
