@@ -9,7 +9,7 @@ body {
 
 .topper {
 	height: 18px;
-	background-color: #F6F3E3;
+	background-color: #FFFFFF;
 	position: fixed;
 	width: 100%;
 }
@@ -17,7 +17,9 @@ body {
 .header{
 	height:88px;
 	background-color:#FFFFFF;
-	border-top: 8px solid #f6f3e3;
+	position: fixed;
+	width: 100%;
+	margin-top: 18px;
 }
 
 .clear{
@@ -35,6 +37,7 @@ body {
 	background-image:url(images/bg1.jpg);
 	background-repeat: repeat-x;
 	background-color:#F6F1DE;
+	padding-top: 106px;
 }
 
 .content_interior{
@@ -449,7 +452,7 @@ h7 {
 
 
 #menu ul {
-	float: left;
+	float: right;
 	margin: 0;
 	padding: 2px 20px 0px 0px;
 	list-style: none;
@@ -457,7 +460,7 @@ h7 {
 }
 
 #menu li {
-	float: left;
+	float: right;
 	padding: 0px 15px 0px 15px;
 	list-style: none;
 }

@@ -1,4 +1,4 @@
-o: ActiveSupport::Cache::Entry	:@value{	I"length:EFi·-I"digest;F"%4b7d2d5b77165a0c9ac0352955e33c77I"source;FI"·-/* CSS Document */
+o: ActiveSupport::Cache::Entry	:@value{	I"length:EFiá-I"digest;F"%559f4f45ecac76b78a7ab62243a8f99bI"source;FI"á-/* CSS Document */
 
 body {
 	margin: 0;
@@ -10,7 +10,7 @@ body {
 
 .topper {
 	height: 18px;
-	background-color: #F6F3E3;
+	background-color: #FFFFFF;
 	position: fixed;
 	width: 100%;
 }
@@ -18,7 +18,9 @@ body {
 .header{
 	height:88px;
 	background-color:#FFFFFF;
-	border-top: 8px solid #f6f3e3;
+	position: fixed;
+	width: 100%;
+	margin-top: 18px;
 }
 
 .clear{
@@ -36,6 +38,7 @@ body {
 	background-image:url(images/bg1.jpg);
 	background-repeat: repeat-x;
 	background-color:#F6F1DE;
+	padding-top: 106px;
 }
 
 .content_interior{
@@ -450,7 +453,7 @@ h7 {
 
 
 #menu ul {
-	float: left;
+	float: right;
 	margin: 0;
 	padding: 2px 20px 0px 0px;
 	list-style: none;
@@ -458,7 +461,7 @@ h7 {
 }
 
 #menu li {
-	float: left;
+	float: right;
 	padding: 0px 15px 0px 15px;
 	list-style: none;
 }
@@ -771,4 +774,4 @@ li{
 	float: center;
 }
 
-;FI"_version;F"%565e00d71b3dd3c5b63ce79a0028376a:@created_atf1339914767.224734:@expires_in0:@compressedF
+;FI"_version;F"%a9c37ab7a8d3cdfc7816a933bc6e7b12:@created_atf1416467976.552045:@expires_in0:@compressedF
