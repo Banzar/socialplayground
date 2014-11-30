@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_attached_file :avatar, 
 	:styles => { :small => "180x180!", :thumb => "50x50!" }, 
-	:default_url => 'nopic.gif',
+	:default_url => 'nopic.png',
   	:storage => :s3,
   	:bucket => ENV['S3_BUCKET'],
   	:s3_credentials => {

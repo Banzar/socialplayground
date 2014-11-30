@@ -4,7 +4,7 @@
 			<% if feed.user.avatar.file? %>
 				<%= image_tag feed.user.avatar.url(:thumb) %>
 			<% else %>
-				<img src="assets/nopic2.gif">
+				<img src="assets/nopic2.png">
 			<% end %>
 			<div class="feed_message_container">
 				<% if feed.user.first_name.present? && feed.user.last_name.present? %>
