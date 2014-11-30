@@ -52,7 +52,7 @@
 									<% if user.avatar.file? %>
 										<%= image_tag user.avatar.url(:thumb) %>
 									<% else %>
-										<img src="assets/nopic2.gif">
+										<img src="assets/nopic2.png">
 									<% end %>
 								<div class="user_message_container">
 									<%= link_to user.username.capitalize, user.username %>
