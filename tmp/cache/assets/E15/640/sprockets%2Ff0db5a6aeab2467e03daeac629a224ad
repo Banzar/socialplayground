@@ -1,0 +1,4 @@
+o: ActiveSupport::Cache::Entry	:@value{I"
+class:EFI"StaticAsset;FI"id;F"%9ddf443b99c9e7d8a37d6ffd1f72c1e2I"logical_path;FI"flower400.jpg;TI"pathname;FI"*$root/app/assets/images/flower400.jpg;TI"content_type;FI"image/jpeg;FI"
+mtime;FI"2014-12-06T01:55:59-05:00;FI"length;FI"
+52404;FI"digest;F"%e560650a768da37242a9b5ce0a0531ceI"_version;F"%46dde6621c301f4928e3b34efee9e3b5:@created_atf1417849697.610699:@expires_in0:@compressedF
