@@ -1,0 +1,4 @@
+o: ActiveSupport::Cache::Entry	:@value{I"
+class:EFI"StaticAsset;FI"id;F"%a29d1cd3fd2731b6c32054d74adc1666I"logical_path;FI"flower6416.ico;TI"pathname;FI"+$root/app/assets/images/flower6416.ico;TI"content_type;FI"image/vnd.microsoft.icon;FI"
+mtime;FI"2014-12-06T18:04:37-05:00;FI"length;FI"
+18102;FI"digest;F"%b9db9c5e0dba6ce381dd464ea86ce511I"_version;F"%46dde6621c301f4928e3b34efee9e3b5:@created_atf1418220499.608426:@expires_in0:@compressedF
